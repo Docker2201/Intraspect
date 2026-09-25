@@ -1,0 +1,4286 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-base: #f5f7fb;
+    -fx-background: #f5f7fb;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #2563eb;
+    -fx-focus-color: #2563eb;
+    -fx-faint-focus-color: rgba(37, 99, 235, 0.12);
+}
+
+.menu-bar {
+    -fx-background-color: #0f172a;
+    -fx-padding: 2 8 2 8;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #e5e7eb;
+}
+
+.context-menu {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #dbe3ef;
+    -fx-border-radius: 8;
+}
+
+.context-menu .label {
+    -fx-text-fill: #111827;
+}
+
+.split-pane {
+    -fx-background-color: #e5eaf3;
+}
+
+.split-pane-divider {
+    -fx-background-color: #cbd5e1;
+    -fx-padding: 0 1 0 1;
+}
+
+.sidebar {
+    -fx-background-color: #f8fafc;
+    -fx-padding: 0;
+}
+
+.program-text-header {
+    -fx-padding: 2 16 12 0;
+    -fx-spacing: 0;
+    -fx-alignment: top-left;
+    -fx-max-width: infinity;
+}
+
+.program-text-header .program-section-heading {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0;
+}
+
+.program-text-header .section-title.program-section-heading {
+    -fx-padding: 0;
+}
+
+.program-text-header .muted-label.program-section-heading {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748b;
+    -fx-padding: 0;
+}
+
+.program-editor-stack {
+    -fx-padding: 0 0 3 0;
+    -fx-spacing: 0;
+}
+
+.sidebar-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.sidebar-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 14;
+    -fx-padding: 12;
+}
+
+.sidebar .label,
+.sidebar-card .label,
+.program-section .label {
+    -fx-text-fill: #1e293b;
+}
+
+.sidebar .check-box {
+    -fx-text-fill: #334155;
+}
+
+.sidebar .text-field {
+    -fx-text-fill: #0f172a;
+    -fx-prompt-text-fill: #64748b;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.program-section {
+    -fx-padding: 8 0 0 0;
+    -fx-spacing: 0;
+}
+
+.program-toolbar-wrap {
+    /* Высоту НЕ фиксируем: панель кнопок переносит их на вторую строку при узком окне,
+       и обёртка должна вырасти, иначе нижний ряд обрежется. */
+    -fx-min-height: 96px;
+    -fx-min-width: 0;
+    -fx-max-width: infinity;
+    -fx-alignment: center;
+    -fx-padding: 8 14 8 14;
+    -fx-background-color: #eef2f7;
+    -fx-border-color: #d5dde8;
+    -fx-border-width: 1 0 0 0;
+}
+
+.program-toolbar {
+    -fx-max-width: infinity;
+    -fx-min-width: 0;
+    -fx-alignment: center;
+}
+
+.program-toolbar .button.program-toolbar-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-height: 34px;
+    -fx-pref-height: 34px;
+    -fx-max-height: 34px;
+}
+
+.program-toolbar .program-toolbar-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.program-toolbar .program-toolbar-field {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-height: 34px;
+    -fx-pref-height: 34px;
+}
+
+.program-toolbar .program-toolbar-combo {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-height: 34px;
+    -fx-pref-height: 34px;
+}
+
+.dark-theme .program-toolbar .program-toolbar-label {
+    -fx-text-fill: #e2e8f0;
+}
+
+.program-editor-panel {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-max-width: infinity;
+}
+
+.program-editor-panel .program-editor-row {
+    -fx-max-width: infinity;
+}
+
+.section-title {
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+    -fx-text-fill: #0f172a;
+}
+
+.muted-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 12px;
+}
+
+.result-label {
+    -fx-font-family: Consolas, monospace;
+    -fx-font-size: 13px;
+    -fx-text-fill: #0f766e;
+    -fx-font-weight: 700;
+}
+
+.progress-status-label {
+    -fx-text-fill: #2563eb;
+    -fx-font-weight: 700;
+    -fx-font-size: 11px;
+}
+
+.text-field, .text-area {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-padding: 6 8 6 8;
+    -fx-text-fill: #0f172a;
+    -fx-prompt-text-fill: #64748b;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.18), 8, 0, 0, 0);
+}
+
+.gcode-editor {
+    -fx-font-family: Consolas, monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #16a34a;
+}
+
+.gcode-editor .content {
+    -fx-background-color: #ffffff;
+}
+
+.gcode-editor .text {
+    -fx-fill: #16a34a;
+}
+
+.gcode-code-area {
+    -fx-font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-background-color: #ffffff;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-padding: 0 8 5 4;
+}
+
+.gcode-code-area .paragraph-box {
+    -fx-background-insets: 0 0 0 24px;
+    -fx-background-color: transparent;
+}
+
+.program-gutter-shield {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.gcode-code-area .text {
+    -fx-fill: #15803d;
+}
+
+.gcode-code-area .caret {
+    -fx-stroke: #1e293b;
+}
+
+.gcode-code-area .selection,
+.styled-text-area .selection {
+    -fx-fill: rgba(14, 165, 233, 0.24);
+    -fx-stroke: rgba(2, 132, 199, 0.55);
+}
+
+.gcode-code-area .paragraph-box .text {
+    -fx-fill: #15803d;
+}
+
+.gcode-code-area .scroll-bar:vertical,
+.gcode-code-area .scroll-bar:horizontal {
+    -fx-background-color: #f1f5f9;
+}
+
+.gcode-code-area .scroll-bar .thumb {
+    -fx-background-color: #94a3b8;
+    -fx-background-radius: 4;
+}
+
+.program-editor-row {
+    -fx-spacing: 0;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 0;
+}
+
+.gcode-code-area .program-marker-cell {
+    -fx-background-color: #eef2f7;
+    -fx-border-color: transparent #cbd5e1 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.program-marker-cell-frame {
+    -fx-background-color: rgba(245, 158, 11, 0.85);
+}
+
+.gcode-code-area .text.program-line-graph,
+.gcode-code-area .text.program-line-graph-rapid,
+.gcode-code-area .text.program-line-graph-arc {
+    -rtfx-background-color: rgba(148, 163, 184, 0.24);
+}
+
+.gcode-code-area .text.program-line-exec {
+    -rtfx-background-color: rgba(250, 204, 21, 0.30);
+}
+
+.gcode-editor-scroll {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.gcode-editor-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.gcode-editor-scroll > .scroll-bar:vertical {
+    -fx-pref-width: 14;
+}
+
+.gcode-editor-scroll > .scroll-bar:horizontal {
+    -fx-pref-height: 14;
+}
+
+.gcode-editor-scroll > .scroll-bar .thumb {
+    -fx-background-color: #94a3b8;
+    -fx-background-radius: 4;
+}
+
+.gcode-code-area .text.program-line-active,
+.gcode-code-area .paragraph-box.program-line-active,
+.gcode-code-area .program-line-active {
+    -rtfx-background-color: rgba(186, 230, 253, 0.45);
+}
+
+.styled-text-area .paragraph-box.program-line-exec,
+.gcode-code-area .program-line-exec,
+.gcode-code-area .paragraph-box.program-line-exec {
+    -rtfx-background-color: rgba(250, 204, 21, 0.28);
+}
+
+.styled-text-area .paragraph-box.program-line-graph,
+.gcode-code-area .program-line-graph,
+.gcode-code-area .paragraph-box.program-line-graph {
+    -rtfx-background-color: rgba(148, 163, 184, 0.22);
+}
+
+.styled-text-area .paragraph-box.program-line-graph-rapid,
+.gcode-code-area .program-line-graph-rapid,
+.gcode-code-area .paragraph-box.program-line-graph-rapid {
+    -rtfx-background-color: rgba(14, 165, 233, 0.22);
+}
+
+.styled-text-area .paragraph-box.program-line-graph-arc,
+.gcode-code-area .program-line-graph-arc,
+.gcode-code-area .paragraph-box.program-line-graph-arc {
+    -rtfx-background-color: rgba(168, 85, 247, 0.22);
+}
+
+.styled-text-area .paragraph-box.program-line-graph-select,
+.gcode-code-area .program-line-graph-select,
+.gcode-code-area .paragraph-box.program-line-graph-select {
+    -rtfx-background-color: rgba(30, 64, 175, 0.34);
+}
+
+.gcode-code-area .text.program-line-graph-select {
+    -fx-fill: #ffffff;
+}
+
+.gcode-code-area .program-line-rapid,
+.gcode-code-area .paragraph-box.program-line-rapid {
+    -rtfx-background-color: rgba(14, 165, 233, 0.20);
+}
+
+.gcode-code-area .program-line-arc,
+.gcode-code-area .paragraph-box.program-line-arc {
+    -rtfx-background-color: rgba(253, 186, 116, 0.45);
+}
+
+.gcode-code-area .program-line-cut,
+.gcode-code-area .paragraph-box.program-line-cut {
+    -rtfx-background-color: rgba(252, 165, 165, 0.45);
+}
+
+.canvas-host {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.canvas-pane {
+    -fx-background-color: #f8fafc;
+}
+
+.status-panel .primary-button,
+.status-panel .danger-button,
+.status-panel .status-panel-text {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.status-panel .status-center-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 4 6 4;
+}
+
+.status-panel {
+    -fx-background-color: #eef2f7;
+    -fx-border-color: #d5dde8;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-speed-row {
+    -fx-alignment: center-left;
+    -fx-max-width: use-computed-size;
+    -fx-pref-width: use-computed-size;
+}
+
+.cycle-speed-block {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-color: #c5d0dc;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 6 12 8 12;
+    -fx-max-width: 218;
+    -fx-pref-width: 218;
+    -fx-min-width: 218;
+    -fx-min-height: 86;
+    -fx-pref-height: 86;
+    -fx-max-height: 86;
+}
+
+.cycle-speed-title {
+    -fx-font-weight: 800;
+    -fx-font-size: 12px;
+    -fx-text-fill: #0f172a;
+}
+
+.cycle-speed-block .slider,
+.cycle-speed-block .cycle-speed-slider {
+    -fx-max-width: 194;
+    -fx-pref-width: 194;
+    -fx-min-width: 194;
+}
+
+.cycle-speed-block .slider .axis,
+.cycle-speed-block .cycle-speed-slider .axis {
+    -fx-tick-label-font-size: 12px;
+    -fx-font-size: 12px;
+}
+
+.cycle-speed-block .slider .axis .text,
+.cycle-speed-block .cycle-speed-slider .axis .text {
+    -fx-font-size: 12px;
+    -fx-fill: #0f172a;
+}
+
+.sim-actions-mini-block {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-color: #c5d0dc;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 5 8 5 8;
+    -fx-min-width: 136;
+    -fx-max-width: 136;
+    -fx-pref-width: 136;
+    -fx-min-height: 86;
+    -fx-pref-height: 86;
+    -fx-max-height: 86;
+}
+
+.accent-orange-button-sim {
+    -fx-min-height: 44;
+    -fx-pref-height: 44;
+    -fx-max-height: 44;
+    -fx-min-width: 124;
+    -fx-pref-width: 124;
+    -fx-padding: 8 10 8 10;
+    -fx-font-size: 12px;
+}
+
+.accent-orange-button-settings {
+    -fx-min-height: 30;
+    -fx-pref-height: 30;
+    -fx-max-height: 30;
+    -fx-padding: 5 10 5 10;
+    -fx-font-size: 11px;
+}
+
+.combo-box-base {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #cbd5e1;
+}
+
+.combo-box-base .text-field {
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.combo-box-base:focused {
+    -fx-border-color: #2563eb;
+}
+
+.progress-bar {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.progress-bar > .track {
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 8;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #3b82f6, #2563eb);
+    -fx-background-radius: 8;
+    -fx-padding: 1;
+}
+
+.progress-percent-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f172a;
+    -fx-alignment: center;
+    -fx-padding: 0 0 0 4;
+}
+
+.status-progress-row {
+    -fx-alignment: center-left;
+}
+
+.slider .track {
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 4;
+}
+
+.slider .thumb {
+    -fx-background-color: #2563eb;
+    -fx-background-radius: 8;
+}
+
+.button {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-weight: 800;
+    -fx-font-size: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 6 10 6 10;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.16), 8, 0, 0, 2);
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(to bottom, #34d399, #16a34a);
+    -fx-border-color: #15803d;
+    -fx-text-fill: white;
+}
+
+.danger-button {
+    -fx-background-color: linear-gradient(to bottom, #dc2626, #991b1b);
+    -fx-border-color: #7f1d1d;
+    -fx-text-fill: white;
+}
+
+.secondary-button {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #cbd5e1);
+    -fx-border-color: #94a3b8;
+    -fx-text-fill: #0f172a;
+}
+
+.button:hover {
+    -fx-brightness: 0.06;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.28), 12, 0, 0, 2);
+}
+
+.button:pressed {
+    -fx-translate-y: 1;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.12), 4, 0, 0, 1);
+}
+
+.button.cycle-speed-play-button {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e2e8f0);
+    -fx-border-color: #94a3b8;
+    -fx-border-width: 1;
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 8 0 8;
+    -fx-effect: null;
+    -fx-background-insets: 0;
+}
+
+.button.cycle-speed-play-button:hover,
+.button.cycle-speed-play-button:pressed {
+    -fx-effect: null;
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #cbd5e1);
+}
+
+.button.accent-orange-button,
+.sim-actions-mini-block .button.accent-orange-button {
+    -fx-background-color: linear-gradient(to bottom, #fdba74, #f97316);
+    -fx-border-color: #c2410c;
+    -fx-border-width: 1;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 800;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-insets: 0;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+
+.button.accent-orange-button:hover,
+.sim-actions-mini-block .button.accent-orange-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #fed7aa, #fb923c);
+    -fx-text-fill: #0f172a;
+    -fx-effect: null;
+    -fx-brightness: 1.03;
+}
+
+.button.accent-orange-button:pressed,
+.sim-actions-mini-block .button.accent-orange-button:pressed {
+    -fx-effect: null;
+    -fx-translate-y: 1;
+}
+
+.check-box {
+    -fx-text-fill: #334155;
+    -fx-font-size: 10px;
+    -fx-font-weight: 800;
+}
+
+.check-box .box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #94a3b8;
+}
+
+.about-dialog .graphic-container {
+    -fx-padding: 14px 0 0 0;
+}
+
+.dark-theme {
+    -fx-base: #000000;
+    -fx-background: #000000;
+    -fx-control-inner-background: #000000;
+    -fx-accent: #636363;
+    -fx-focus-color: #636363;
+    -fx-faint-focus-color: rgba(99, 99, 99, 0.35);
+}
+
+/* Диалоги в тёмной теме (замена текста, сообщения, ошибки) — читаемый светлый текст. */
+.dialog-pane.dark-theme {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+    -fx-border-width: 1;
+}
+.dialog-pane.dark-theme > .header-panel {
+    -fx-background-color: #111827;
+}
+.dialog-pane.dark-theme > .header-panel .label,
+.dialog-pane.dark-theme > .content,
+.dialog-pane.dark-theme .content.label,
+.dialog-pane.dark-theme .label {
+    -fx-text-fill: #f1f5f9;
+}
+.dialog-pane.dark-theme .text-field {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: #94a3b8;
+    -fx-highlight-fill: #334155;
+    -fx-border-color: #475569;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.dialog-pane.dark-theme .button {
+    -fx-background-color: #1f2937;
+    -fx-text-fill: #f1f5f9;
+    -fx-border-color: #334155;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.dialog-pane.dark-theme .button:hover,
+.dialog-pane.dark-theme .button:focused,
+.dialog-pane.dark-theme .button:default {
+    -fx-background-color: #334155;
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .menu-bar .label,
+.dark-theme .menu .label,
+.dark-theme .menu-item .label,
+.dark-theme .radio-menu-item .label,
+.dark-theme .check-menu-item .label {
+    -fx-text-fill: #e5e7eb;
+}
+
+.dark-theme .menu:hover,
+.dark-theme .menu:showing,
+.dark-theme .menu:focused {
+    -fx-background-color: #636363;
+}
+
+.dark-theme .menu-item:hover,
+.dark-theme .menu-item:focused,
+.dark-theme .radio-menu-item:hover,
+.dark-theme .radio-menu-item:focused,
+.dark-theme .radio-menu-item:selected {
+    -fx-background-color: #636363;
+}
+
+.dark-theme .context-menu .label {
+    -fx-text-fill: #e5e7eb;
+}
+
+.dark-theme .sidebar {
+    -fx-background-color: #0a0a0a;
+    -fx-padding: 0;
+}
+
+.dark-theme .sidebar-card {
+    -fx-background-color: #111827;
+    -fx-background-radius: 12;
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 10, 0, 0, 2);
+}
+
+.dark-theme .canvas-host {
+    -fx-background-color: #000000;
+    -fx-padding: 8;
+}
+
+.dark-theme .canvas-pane {
+    -fx-background-color: #111827;
+    -fx-background-radius: 12;
+    -fx-border-color: #334155;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 10, 0, 0, 2);
+}
+
+.dark-theme .progress-percent-label {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .cycle-speed-block {
+    -fx-background-color: #141414;
+    -fx-border-color: #404040;
+    -fx-border-width: 1;
+    -fx-min-height: 86;
+    -fx-pref-height: 86;
+    -fx-max-height: 86;
+}
+
+.dark-theme .sim-actions-mini-block {
+    -fx-background-color: #0b0b0b;
+    -fx-border-color: #404040;
+    -fx-border-width: 1;
+    -fx-min-height: 86;
+    -fx-pref-height: 86;
+    -fx-max-height: 86;
+}
+
+.dark-theme .cycle-speed-title {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .cycle-speed-block .slider .axis .text,
+.dark-theme .cycle-speed-block .cycle-speed-slider .axis .text {
+    -fx-fill: #ffffff;
+}
+
+.dark-theme .button.cycle-speed-play-button {
+    -fx-background-color: linear-gradient(to bottom, #334155, #1e293b);
+    -fx-border-color: #64748b;
+    -fx-text-fill: #ffffff;
+    -fx-effect: null;
+}
+
+.dark-theme .button.cycle-speed-play-button:hover,
+.dark-theme .button.cycle-speed-play-button:pressed {
+    -fx-effect: null;
+}
+
+.dark-theme .button.accent-orange-button,
+.dark-theme .sim-actions-mini-block .button.accent-orange-button {
+    -fx-background-color: linear-gradient(to bottom, #fdba74, #f97316);
+    -fx-border-color: #ea580c;
+    -fx-text-fill: #ffffff;
+    -fx-effect: null;
+}
+
+.dark-theme .button.accent-orange-button:hover,
+.dark-theme .sim-actions-mini-block .button.accent-orange-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #fed7aa, #fb923c);
+    -fx-text-fill: #ffffff;
+    -fx-effect: null;
+}
+
+.dark-theme .status-panel {
+    -fx-background-color: #111827;
+    -fx-border-color: #334155;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 0;
+}
+
+.dark-theme .program-toolbar-wrap {
+    -fx-background-color: #111827;
+    -fx-border-color: #334155;
+    -fx-border-width: 1 0 0 0;
+}
+
+.dark-theme .status-panel .secondary-button,
+.dark-theme .status-panel .status-center-button {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #cbd5e1);
+    -fx-background-insets: 0;
+    -fx-border-color: #94a3b8;
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .status-panel .status-panel-text {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .split-pane,
+.dark-theme .sidebar-scroll,
+.dark-theme .sidebar-scroll > .viewport,
+.dark-theme .scroll-pane,
+.dark-theme .viewport {
+    -fx-background-color: transparent;
+}
+
+.dark-theme .program-editor-row {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .text-field,
+.dark-theme .text-area,
+.dark-theme .gcode-editor .content {
+    -fx-background-color: #000000;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .context-menu {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .sidebar .label,
+.dark-theme .sidebar-card .label,
+.dark-theme .program-section .label,
+.dark-theme .program-section-heading,
+.dark-theme .status-panel .label,
+.dark-theme .check-box,
+.dark-theme .section-title,
+.dark-theme .muted-label {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .program-section > .muted-label.program-section-heading {
+    -fx-text-fill: #e2e8f0;
+}
+
+.dark-theme .sidebar .check-box {
+    -fx-text-fill: #e2e8f0;
+}
+
+.dark-theme .text-field,
+.dark-theme .text-area {
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #94a3b8;
+    -fx-highlight-fill: #3b82f6;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.dark-theme .gcode-editor,
+.dark-theme .gcode-editor .text,
+.dark-theme .gcode-code-area,
+.dark-theme .gcode-code-area .text {
+    -fx-text-fill: #4ade80;
+    -fx-fill: #4ade80;
+}
+
+.dark-theme .gcode-code-area {
+    -fx-background-color: #0f172a;
+    -fx-highlight-fill: #3b82f6;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.dark-theme .gcode-code-area .selection,
+.dark-theme .styled-text-area .selection {
+    -fx-fill: rgba(56, 189, 248, 0.22);
+    -fx-stroke: rgba(125, 211, 252, 0.60);
+}
+
+.dark-theme .gcode-code-area .caret {
+    -fx-stroke: #e2e8f0;
+}
+
+.dark-theme .gcode-editor-scroll {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.dark-theme .gcode-code-area .program-marker-cell {
+    -fx-background-color: #111827;
+    -fx-border-color: transparent #334155 transparent transparent;
+}
+
+.dark-theme .program-marker-cell-frame {
+    -fx-background-color: rgba(245, 158, 11, 0.75);
+}
+
+.dark-theme .gcode-code-area .program-line-active,
+.dark-theme .gcode-code-area .paragraph-box.program-line-active {
+    -rtfx-background-color: rgba(37, 99, 235, 0.32);
+}
+
+.dark-theme .gcode-code-area .program-line-exec,
+.dark-theme .gcode-code-area .paragraph-box.program-line-exec {
+    -rtfx-background-color: rgba(245, 158, 11, 0.28);
+}
+
+.dark-theme .gcode-code-area .paragraph-box.program-line-graph,
+.dark-theme .styled-text-area .paragraph-box.program-line-graph {
+    -rtfx-background-color: rgba(99, 102, 241, 0.24);
+}
+
+.dark-theme .gcode-code-area .program-line-graph-select,
+.dark-theme .gcode-code-area .paragraph-box.program-line-graph-select {
+    -rtfx-background-color: rgba(59, 130, 246, 0.36);
+}
+
+.dark-theme .gcode-code-area .text.program-line-graph-select {
+    -fx-fill: #ffffff;
+}
+
+.dark-theme .progress-bar > .track {
+    -fx-background-color: #334155;
+}
+
+.dark-theme .progress-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #22c55e, #16a34a);
+}
+
+.dark-theme .combo-box-base {
+    -fx-border-color: #334155;
+}
+
+.dark-theme .combo-box-base .text-field {
+    -fx-text-fill: #ffffff;
+    -fx-highlight-fill: #3b82f6;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.settings-window-root {
+    -fx-background-color: #f8fafc;
+}
+
+.settings-window-root .label,
+.settings-window-root .check-box,
+.settings-window-root .radio-button,
+.settings-window-root .section-title {
+    -fx-text-fill: #0f172a;
+}
+
+.settings-window-root .muted-label {
+    -fx-text-fill: #475569;
+}
+
+.settings-window-root .result-label {
+    -fx-text-fill: #0f766e;
+}
+
+.settings-window-root .combo-box .list-cell,
+.settings-window-root .choice-box .label,
+.settings-window-root .spinner .text-field,
+.settings-window-root .text-field {
+    -fx-text-fill: #0f172a;
+}
+
+.history-window-root {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.history-window-body {
+    -fx-background-color: #f8fafc;
+}
+
+.history-content-row {
+    -fx-background-color: #f8fafc;
+}
+
+.history-toolbar {
+    -fx-background-color: #f8fafc;
+    -fx-min-height: 72px;
+    -fx-pref-height: 72px;
+    -fx-max-height: 72px;
+    -fx-padding: 12 24 16 24;
+    -fx-spacing: 0;
+    -fx-alignment: center;
+}
+
+.button.button-36,
+.history-toolbar .button.button-36 {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #071432;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-color: transparent;
+    -fx-padding: 12 28 12 28;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(99, 99, 99, 0.18), 6, 0, 0, 1);
+}
+
+.button.button-36:hover,
+.history-toolbar .button.button-36:hover {
+    -fx-opacity: 0.98;
+}
+
+.button.button-36:pressed,
+.history-toolbar .button.button-36:pressed {
+    -fx-padding: 12 28 12 28;
+    -fx-opacity: 0.97;
+    -fx-effect: dropshadow(gaussian, rgba(99, 99, 99, 0.2), 6, 0, 0, 2);
+}
+
+.dark-theme .button.button-36,
+.dark-theme .history-toolbar .button.button-36 {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #3f3f46;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 10, 0, 0, 2);
+}
+
+.dark-theme .button.button-36:hover,
+.dark-theme .history-toolbar .button.button-36:hover {
+    -fx-opacity: 0.98;
+    -fx-brightness: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 10, 0, 0, 2);
+}
+
+.dark-theme .button.button-36:pressed,
+.dark-theme .history-toolbar .button.button-36:pressed {
+    -fx-padding: 12 28 12 28;
+    -fx-opacity: 0.97;
+    -fx-brightness: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 4, 0, 0, 1);
+}
+
+.dark-theme .history-window-root,
+.dark-theme .history-window-body,
+.dark-theme .history-content-row {
+    -fx-background-color: #0b0b0b;
+}
+
+.dark-theme .history-toolbar {
+    -fx-background-color: #0b0b0b;
+    -fx-padding: 12 24 16 24;
+}
+
+.dark-theme .history-toolbar .button.button-36 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 4, 0, 0, 1);
+}
+
+.history-list-view > .virtual-flow > .scroll-bar:vertical {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+    -fx-padding: 0;
+}
+
+.history-external-scroll {
+    -fx-pref-width: 19;
+    -fx-min-width: 19;
+    -fx-max-width: 19;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.history-external-scroll .increment-button,
+.history-external-scroll .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+    -fx-max-height: 0;
+}
+
+.history-external-scroll .track {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 2 1 2 1;
+    -fx-min-height: 0;
+}
+
+.history-external-scroll .thumb {
+    -fx-background-color: linear-gradient(to bottom, #e2e8f0, #ffffff);
+    -fx-background-radius: 10;
+    -fx-background-insets: 1;
+    -fx-min-width: 14;
+    -fx-pref-width: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.14), 4, 0.16, 0, 1);
+}
+
+.history-external-scroll .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, #cbd5e1, #f8fafc);
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.2), 5, 0.18, 0, 1);
+}
+
+.dark-theme .history-external-scroll .track {
+    -fx-background-color: #050505;
+    -fx-padding: 2 1 2 1;
+}
+
+.dark-theme .history-external-scroll .thumb {
+    -fx-background-color: linear-gradient(to bottom, #3d3d3d, #1f1f1f);
+    -fx-background-radius: 10;
+    -fx-background-insets: 1;
+    -fx-min-width: 14;
+    -fx-pref-width: 14;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.14), 5, 0.18, 0, 0),
+                innershadow(gaussian, rgba(0, 0, 0, 0.72), 5, 0.2, 0, 1);
+}
+
+.dark-theme .history-external-scroll .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a4a4a, #262626);
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.2), 6, 0.22, 0, 0),
+                innershadow(gaussian, rgba(0, 0, 0, 0.6), 4, 0.15, 0, 1);
+}
+
+.history-list-view,
+.history-list-view:focused,
+.history-list-view > .virtual-flow,
+.history-list-view > .virtual-flow > .clipped-container,
+.history-list-view > .virtual-flow > .clipped-container > .sheet {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.history-list-view > .virtual-flow > .corner {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-min-width: 0;
+    -fx-min-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+}
+
+.history-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 1 0 1 0;
+}
+
+.history-list-view .list-cell.history-cell-header {
+    -fx-padding: 0 0 0 0;
+}
+
+.dark-theme .settings-window-root {
+    -fx-background-color: #0f172a;
+}
+
+.dark-theme .settings-window-root .label,
+.dark-theme .settings-window-root .check-box,
+.dark-theme .settings-window-root .radio-button,
+.dark-theme .settings-window-root .section-title,
+.dark-theme .settings-window-root .muted-label {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .settings-window-root .result-label {
+    -fx-text-fill: #67e8f9;
+}
+
+.dark-theme .history-list-view,
+.dark-theme .history-list-view:focused,
+.dark-theme .history-list-view > .virtual-flow,
+.dark-theme .history-list-view > .virtual-flow > .clipped-container,
+.dark-theme .history-list-view > .virtual-flow > .clipped-container > .sheet {
+    -fx-background-color: #0b0b0b;
+}
+
+.dark-theme .history-list-view > .virtual-flow > .scroll-bar:vertical .track {
+    -fx-background-color: #050505;
+}
+
+.dark-theme .history-list-view > .virtual-flow > .scroll-bar:vertical .thumb {
+    -fx-background-color: #636363;
+}
+
+.history-header-label {
+    -fx-font-weight: 800;
+    -fx-text-fill: #2563eb;
+}
+
+.dark-theme .history-header-label {
+    -fx-text-fill: #ffffff;
+}
+
+.history-info-row {
+    -fx-text-fill: #64748b;
+    -fx-font-weight: 600;
+    -fx-wrap-text: true;
+}
+
+.dark-theme .history-info-row {
+    -fx-text-fill: #ffffff;
+}
+
+.history-old-chip {
+    -fx-background-color: rgba(185, 28, 28, 0.12);
+    -fx-border-color: rgba(185, 28, 28, 0.35);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 4 6 4 6;
+    -fx-text-fill: #7f1d1d;
+}
+
+.dark-theme .history-old-chip {
+    -fx-background-color: rgba(127, 29, 29, 0.55);
+    -fx-border-color: rgba(248, 113, 113, 0.65);
+    -fx-text-fill: #ffffff;
+}
+
+.history-new-chip {
+    -fx-background-color: rgba(22, 163, 74, 0.14);
+    -fx-border-color: rgba(22, 163, 74, 0.35);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 4 6 4 6;
+    -fx-text-fill: #14532d;
+}
+
+.dark-theme .history-new-chip {
+    -fx-background-color: rgba(21, 128, 61, 0.55);
+    -fx-border-color: rgba(74, 222, 128, 0.65);
+    -fx-text-fill: #ffffff;
+}
+
+.history-new-chip-clickable {
+    -fx-cursor: hand;
+}
+
+.history-arrow {
+    -fx-font-size: 14px;
+    -fx-text-fill: #334155;
+    -fx-padding: 0 4 0 4;
+}
+
+.dark-theme .history-arrow {
+    -fx-text-fill: #ffffff;
+}
+
+.simulation3d-root {
+    -fx-background-color: #f8fafc;
+}
+
+.simulation3d-toolbar {
+    -fx-background-color: #eef2f7;
+    -fx-border-color: #d5dde8;
+    -fx-border-width: 0 0 1 0;
+}
+
+.simulation3d-toolbar .simulation3d-toolbar-button {
+    -fx-padding: 9 18 9 18;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.simulation3d-toolbar-group {
+    -fx-alignment: center-left;
+}
+
+.simulation3d-viewport {
+    -fx-background-color: #f8fafc;
+}
+
+.simulation3d-status {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-wrap-text: false;
+    -fx-min-width: 0;
+    -fx-padding: 0 0 0 72;
+}
+
+.simulation3d-coords {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.simulation3d-mode-active {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #1d4ed8;
+}
+
+.dark-theme .simulation3d-mode-active {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #60a5fa;
+}
+
+.machine-axes-row {
+    -fx-alignment: center-left;
+}
+
+.machine-axis-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #94a3b8;
+    -fx-padding: 2 6 2 6;
+}
+
+.machine-axis-label.machine-axis-active {
+    -fx-text-fill: #38bdf8;
+}
+
+.dark-theme .simulation3d-root,
+.dark-theme .simulation3d-viewport {
+    -fx-background-color: #101827;
+}
+
+.dark-theme .simulation3d-toolbar {
+    -fx-background-color: #111827;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .simulation3d-status {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .simulation3d-coords {
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .machine-axis-label {
+    -fx-text-fill: #64748b;
+}
+
+.dark-theme .machine-axis-label.machine-axis-active {
+    -fx-text-fill: #38bdf8;
+}
+
+.simulation3d-cycle-badge,
+.simulation3d-measure-readout {
+    -fx-background-color: rgba(148, 163, 184, 0.72);
+    -fx-background-radius: 6;
+    -fx-padding: 6 9 6 9;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .simulation3d-cycle-badge,
+.dark-theme .simulation3d-measure-readout {
+    -fx-background-color: rgba(71, 85, 105, 0.86);
+    -fx-text-fill: #ffffff;
+}
+
+.simulation3d-measure-button {
+    -fx-min-width: 34;
+    -fx-pref-width: 34;
+    -fx-max-width: 34;
+    -fx-min-height: 34;
+    -fx-pref-height: 34;
+    -fx-max-height: 34;
+    -fx-padding: 0;
+    -fx-background-radius: 17;
+    -fx-border-radius: 17;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #dbeafe);
+    -fx-border-color: #93c5fd;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.22), 8, 0.2, 0, 2);
+}
+
+.simulation3d-measure-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #eff6ff, #bfdbfe);
+}
+
+.dark-theme .simulation3d-measure-button {
+    -fx-background-color: linear-gradient(to bottom, #1f2937, #0f172a);
+    -fx-border-color: #60a5fa;
+}
+
+.simulation3d-measure-button.simulation3d-mode-active,
+.dark-theme .simulation3d-measure-button.simulation3d-mode-active {
+    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb);
+    -fx-border-color: #bfdbfe;
+}
+
+.tools-settings-table {
+    -fx-min-height: 320;
+    -fx-pref-height: 360;
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+}
+
+.tools-settings-table .column-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.tools-settings-table .table-row-cell {
+    -fx-cell-size: 54;
+}
+
+.tools-settings-table .table-cell {
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-padding: 4 6 4 6;
+}
+
+.tool-picker-table .table-cell {
+    -fx-alignment: center;
+}
+
+.tools-settings-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .tools-settings-table .table-row-cell:selected .table-cell,
+.tool-picker-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+}
+
+.tool-position-cell {
+    -fx-alignment: center;
+}
+
+.tool-position-graphic {
+    -fx-alignment: center;
+}
+
+.tools-settings-table .tool-position-number {
+    -fx-text-fill: #f8fafc;
+}
+
+.tool-position-button .tool-position-number {
+    -fx-text-fill: #0f172a;
+}
+
+.settings-tool-action-button {
+    -fx-min-height: 30;
+    -fx-pref-height: 30;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-padding: 6 18 6 18;
+}
+
+.settings-tool-add-button {
+    -fx-background-color: linear-gradient(to bottom right, #f0fdf4, #dcfce7);
+    -fx-border-color: #86efac;
+    -fx-text-fill: #166534;
+}
+
+.settings-tool-edit-button {
+    -fx-background-color: linear-gradient(to bottom right, #eff6ff, #dbeafe);
+    -fx-border-color: #93c5fd;
+    -fx-text-fill: #1d4ed8;
+}
+
+.settings-tool-delete-button {
+    -fx-background-color: linear-gradient(to bottom right, #fff1f2, #ffe4e6);
+    -fx-border-color: #fda4af;
+    -fx-text-fill: #9f1239;
+}
+
+.dark-theme .settings-tool-add-button {
+    -fx-background-color: linear-gradient(to bottom right, #14532d, #0f3d24);
+    -fx-border-color: #22c55e;
+    -fx-text-fill: #dcfce7;
+}
+
+.dark-theme .settings-tool-edit-button {
+    -fx-background-color: linear-gradient(to bottom right, #1e3a8a, #172554);
+    -fx-border-color: #60a5fa;
+    -fx-text-fill: #dbeafe;
+}
+
+.dark-theme .settings-tool-delete-button {
+    -fx-background-color: linear-gradient(to bottom right, #7f1d1d, #450a0a);
+    -fx-border-color: #fb7185;
+    -fx-text-fill: #ffe4e6;
+}
+
+.tool-position-button {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #dbeafe);
+    -fx-border-color: #94a3b8;
+    -fx-text-fill: #0f172a;
+}
+
+.tool-position-button:hover,
+.tool-position-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #eff6ff, #bfdbfe);
+    -fx-text-fill: #0f172a;
+}
+
+.tool-position-button.simulation3d-mode-active .tool-position-number,
+.simulation3d-mode-active .tool-position-number {
+    -fx-text-fill: #ffffff;
+}
+
+.tool-position-button.simulation3d-mode-active {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #1d4ed8;
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .tool-position-button {
+    -fx-background-color: linear-gradient(to bottom, #e2e8f0, #cbd5e1);
+    -fx-border-color: #64748b;
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .tool-position-button .tool-position-number {
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .tool-position-button:hover,
+.dark-theme .tool-position-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #bfdbfe);
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .tool-position-button:hover .tool-position-number,
+.dark-theme .tool-position-button:pressed .tool-position-number {
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .tool-position-button.simulation3d-mode-active {
+    -fx-background-color: #3b82f6;
+    -fx-border-color: #93c5fd;
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .tool-position-button.simulation3d-mode-active .tool-position-number,
+.dark-theme .tool-position-button.simulation3d-mode-active:hover .tool-position-number,
+.dark-theme .tool-position-button.simulation3d-mode-active:pressed .tool-position-number {
+    -fx-text-fill: #ffffff;
+}
+
+.tool-position-page-controls {
+    -fx-alignment: center;
+    -fx-padding: 4 0 2 0;
+}
+
+.tool-icon-tooltip {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.thermo-override-tooltip {
+    -fx-font-size: 19px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 14 10 14;
+}
+
+.thermo-override-root {
+    -fx-alignment: top-center;
+}
+
+.thermo-override-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    /* Светлая тема — тёмный текст; белый задаёт .dark-theme ниже. */
+    -fx-text-fill: #334155;
+}
+
+.thermo-override-card {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 18, 0.2, 0, 8);
+}
+
+.thermo-override-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.thermo-override-current-label {
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(71, 85, 105, 0.80);
+    -fx-letter-spacing: 0.2em;
+}
+
+.dark-theme .thermo-override-title {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .thermo-override-value {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .thermo-override-current-label {
+    -fx-text-fill: rgba(215, 225, 235, 0.55);
+}
+
+.thermo-override-status {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+#overrideDialsRow {
+    -fx-alignment: top-center;
+    -fx-spacing: 12;
+}
+
+.settings-machine-header {
+    -fx-alignment: top-left;
+}
+
+.settings-machine-controls {
+    -fx-min-width: 240px;
+}
+
+.settings-type-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f172a;
+}
+
+.settings-override-panel {
+    -fx-alignment: top-center;
+    -fx-padding: 14 12 0 12;
+}
+
+.settings-override-panel .label {
+    -fx-text-alignment: center;
+}
+
+.dark-theme .thermo-override-title {
+    -fx-text-fill: #e2e8f0;
+}
+
+.dark-theme .settings-type-label {
+    -fx-text-fill: #e2e8f0;
+}
+
+.simulation3d-cycle-controls {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
+    -fx-effect: null;
+}
+
+.simulation3d-cycle-control {
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-padding: 7 12 7 12;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+}
+
+.simulation3d-cycle-play {
+    -fx-background-color: linear-gradient(to bottom, #22c55e, #16a34a);
+    -fx-border-color: #86efac;
+    -fx-text-fill: #ffffff;
+}
+
+.simulation3d-cycle-speed {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #cbd5e1);
+    -fx-border-color: #94a3b8;
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .simulation3d-cycle-controls {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.simulation3d-error {
+    -fx-background-color: rgba(15, 23, 42, 0.92);
+    -fx-text-fill: #fecaca;
+    -fx-font-size: 13px;
+    -fx-padding: 16 20;
+    -fx-background-radius: 12;
+    -fx-border-color: #ef4444;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+}
+
+.simulation3d-loading {
+    -fx-background-color: #050913;
+}
+
+.simulation3d-loading-box {
+    -fx-background-color: linear-gradient(to bottom, rgba(30, 58, 95, 0.92), rgba(15, 23, 42, 0.95));
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(56, 189, 248, 0.55);
+    -fx-border-radius: 18;
+    -fx-border-width: 1.2;
+    -fx-padding: 26 36;
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.35), 24, 0.4, 0, 6);
+}
+
+.simulation3d-loading-spinner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 32;
+    -fx-border-radius: 32;
+    -fx-border-width: 5;
+    -fx-border-color: linear-gradient(to bottom right, #38bdf8 0%, #38bdf8 25%, transparent 26%, transparent 75%, #818cf8 76%, #818cf8 100%);
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.55), 18, 0.5, 0, 0);
+}
+
+.simulation3d-loading-title {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.simulation3d-loading-hint {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.dark-theme .simulation3d-loading {
+    -fx-background-color: #020617;
+}
+
+.tool-picker-root {
+    -fx-background-color: #f1f5f9;
+    -fx-font-size: 14px;
+}
+
+.tool-picker-root .label,
+.tool-picker-root .button,
+.tool-picker-root .combo-box {
+    -fx-font-size: 14px;
+}
+
+.tool-picker-header {
+    -fx-background-color: linear-gradient(to bottom, #1e3a5f, #0f172a);
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.tool-picker-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f8fafc;
+}
+
+.tool-picker-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94a3b8;
+}
+
+.tool-picker-left {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-min-width: 200;
+    -fx-pref-width: 200;
+}
+
+.tool-picker-table-pane {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.tool-picker-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tool-picker-table .column-header-background {
+    -fx-background-color: #e2e8f0;
+}
+
+.tool-picker-table .column-header,
+.tool-picker-table .filler {
+    -fx-size: 32;
+}
+
+.tool-picker-table .table-row-cell {
+    -fx-background-color: #ffffff;
+}
+
+.tool-picker-table .table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+
+.tool-picker-table .table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+
+.tool-picker-table .table-cell {
+    -fx-text-fill: #0f172a;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+}
+
+.tool-picker-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #082f49;
+}
+
+.tool-picker-categories {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent transparent #cbd5e1;
+    -fx-border-width: 0 0 0 1;
+    -fx-min-width: 224;
+    -fx-pref-width: 224;
+}
+
+.tool-picker-groups-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+}
+
+.tool-picker-category-button {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 8;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 600;
+    -fx-padding: 8 10 8 10;
+    -fx-cursor: hand;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.tool-picker-category-button:hover {
+    -fx-background-color: #e0f2fe;
+    -fx-border-color: #38bdf8;
+}
+
+.tool-picker-preview {
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 8;
+}
+
+.tool-picker-footer {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.dark-theme.tool-picker-root {
+    -fx-background-color: #0f172a;
+}
+
+.dark-theme .tool-picker-header {
+    -fx-background-color: linear-gradient(to bottom, #1e293b, #020617);
+    -fx-border-color: transparent transparent #334155 transparent;
+}
+
+.dark-theme .tool-picker-left,
+.dark-theme .tool-picker-table-pane,
+.dark-theme .tool-picker-categories {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.dark-theme .tool-picker-table .column-header-background {
+    -fx-background-color: #334155;
+}
+
+.dark-theme .tool-picker-table .table-row-cell {
+    -fx-background-color: #1e293b;
+}
+
+.dark-theme .tool-picker-table .table-row-cell:odd {
+    -fx-background-color: #0f172a;
+}
+
+.dark-theme .tool-picker-table .table-row-cell:selected {
+    -fx-background-color: #1d4ed8;
+}
+
+.dark-theme .tool-picker-table .table-cell {
+    -fx-text-fill: #e2e8f0;
+}
+
+.dark-theme .tool-picker-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .tool-picker-groups-title,
+.dark-theme .tool-picker-left .muted-label {
+    -fx-text-fill: #94a3b8;
+}
+
+.dark-theme .tool-picker-category-button {
+    -fx-background-color: #334155;
+    -fx-border-color: #475569;
+    -fx-text-fill: #f1f5f9;
+}
+
+.dark-theme .tool-picker-category-button:hover {
+    -fx-background-color: #1e40af;
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .tool-picker-preview {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #475569;
+}
+
+.settings-window-footer {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #cbd5e1 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.settings-footer-button {
+    -fx-min-width: 128;
+    -fx-pref-width: 128;
+    -fx-min-height: 42;
+    -fx-pref-height: 42;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-padding: 9 20 9 20;
+}
+
+.dark-theme .settings-window-footer {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155 transparent transparent transparent;
+}
+
+.dark-theme .tool-picker-footer {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155 transparent transparent transparent;
+}
+
+
+/* === Поиск в истории изменений ============================================ */
+
+.history-search-button {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #dbe3ef;
+    -fx-border-width: 1;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+    -fx-max-width: 36px;
+    -fx-max-height: 36px;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.10), 6, 0, 0, 1);
+}
+
+.history-search-button .history-search-icon {
+    -fx-fill: #334155;
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+.history-search-button:hover {
+    -fx-border-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.25), 10, 0, 0, 1);
+}
+
+.history-search-button-active {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #1d4ed8;
+}
+
+.history-search-button-active .history-search-icon {
+    -fx-fill: #ffffff;
+}
+
+.history-search-field {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #dbe3ef;
+    -fx-border-width: 1;
+    -fx-padding: 7 14 7 14;
+    -fx-text-fill: #0f172a;
+    -fx-prompt-text-fill: #94a3b8;
+    -fx-highlight-fill: #2563eb;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 5, 0, 0, 1);
+}
+
+.history-search-field:focused {
+    -fx-border-color: #2563eb;
+}
+
+.history-search-status {
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 0 0 0 4;
+}
+
+.dark-theme .history-search-button {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #3f3f46;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 8, 0, 0, 2);
+}
+
+.dark-theme .history-search-button .history-search-icon {
+    -fx-fill: #cbd5e1;
+}
+
+.dark-theme .history-search-button:hover {
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .history-search-button-active {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .history-search-field {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #3f3f46;
+    -fx-text-fill: #f8fafc;
+    -fx-prompt-text-fill: #64748b;
+}
+
+.dark-theme .history-search-field:focused {
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .history-search-status {
+    -fx-text-fill: #cbd5e1;
+}
+
+/* === Общая полировка интерфейса (размеры шрифтов не меняются) ============= */
+
+/* Скроллбары: тонкие, скруглённые, без рамок. */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(100, 116, 139, 0.10);
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(100, 116, 139, 0.42);
+    -fx-background-radius: 8;
+    -fx-background-insets: 2;
+}
+
+.scroll-bar .thumb:hover,
+.scroll-bar .thumb:pressed {
+    -fx-background-color: rgba(71, 85, 105, 0.62);
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 2;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: rgba(100, 116, 139, 0.55);
+}
+
+.dark-theme .scroll-bar .track {
+    -fx-background-color: rgba(148, 163, 184, 0.08);
+}
+
+.dark-theme .scroll-bar .thumb {
+    -fx-background-color: rgba(148, 163, 184, 0.35);
+}
+
+.dark-theme .scroll-bar .thumb:hover,
+.dark-theme .scroll-bar .thumb:pressed {
+    -fx-background-color: rgba(203, 213, 225, 0.5);
+}
+
+.dark-theme .scroll-bar .increment-arrow,
+.dark-theme .scroll-bar .decrement-arrow {
+    -fx-background-color: rgba(148, 163, 184, 0.6);
+}
+
+/* Поля ввода: мягкие скругления и аккуратный фокус. */
+.text-field,
+.text-area {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.20), 7, 0, 0, 0);
+}
+
+.dark-theme .text-field:focused,
+.dark-theme .text-area:focused {
+    -fx-effect: dropshadow(gaussian, rgba(96, 165, 250, 0.25), 7, 0, 0, 0);
+}
+
+/* Выпадающие списки и спиннеры под стать полям. */
+.combo-box-base,
+.choice-box,
+.spinner {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+/* Таблицы: скругление, ховер строк, спокойный заголовок. */
+.table-view {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent #e2e8f0 transparent transparent;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(37, 99, 235, 0.07);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(37, 99, 235, 0.18);
+    -fx-text-background-color: #0f172a;
+}
+
+.dark-theme .table-view {
+    -fx-border-color: #27272a;
+}
+
+.dark-theme .table-view .column-header-background {
+    -fx-background-color: #111113;
+}
+
+.dark-theme .table-view .column-header {
+    -fx-border-color: transparent #27272a transparent transparent;
+}
+
+.dark-theme .table-row-cell:hover {
+    -fx-background-color: rgba(148, 163, 184, 0.10);
+}
+
+.dark-theme .table-row-cell:selected {
+    -fx-background-color: rgba(96, 165, 250, 0.22);
+    -fx-text-background-color: #f8fafc;
+}
+
+/* Тултипы: тёмные, скруглённые, с мягкой тенью. */
+.tooltip {
+    -fx-background-color: rgba(15, 23, 42, 0.94);
+    -fx-text-fill: #f8fafc;
+    -fx-background-radius: 8;
+    -fx-padding: 7 12 7 12;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.35), 12, 0, 0, 4);
+}
+
+.dark-theme .tooltip {
+    -fx-background-color: rgba(39, 39, 42, 0.97);
+    -fx-border-color: #3f3f46;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+/* Меню: подсветка пунктов и скругление выпадающих списков. */
+.menu-bar .menu:hover,
+.menu-bar .menu:showing {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-radius: 6;
+}
+
+.menu-item:focused {
+    -fx-background-color: #2563eb;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #ffffff;
+}
+
+.context-menu {
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.20), 14, 0, 0, 4);
+    -fx-padding: 6;
+}
+
+/* Кнопки: курсор-рука везде, чуть мягче тень при наведении. */
+.button {
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.22), 10, 0, 0, 2);
+}
+
+/* Чекбоксы: акцентная галочка. */
+.check-box:selected .box {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #1d4ed8;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #ffffff;
+}
+
+.dark-theme .check-box:selected .box {
+    -fx-background-color: #2563eb;
+    -fx-border-color: #60a5fa;
+}
+
+/* Разделители панелей: тоньше и спокойнее. */
+.split-pane-divider {
+    -fx-background-color: #d6deea;
+}
+
+.split-pane-divider:hover {
+    -fx-background-color: #2563eb;
+}
+
+.dark-theme .split-pane-divider {
+    -fx-background-color: #1f1f23;
+}
+
+.dark-theme .split-pane-divider:hover {
+    -fx-background-color: #60a5fa;
+}
+
+/* Диалоги: скруглённая карточка с тенью. */
+.dialog-pane {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-radius: 12 12 0 0;
+}
+
+
+
+/* ===========================================================================
+   NEUMORPHISM — мягкий рельефный стиль Chekator.
+   Один базовый тон поверхности; элементы «выпуклые» (тень снизу-справа +
+   светлая кромка сверху-слева) или «вдавленные» (внутренняя тень — поля
+   ввода и нажатые кнопки). Размеры шрифтов не меняются; текст контрастный.
+   =========================================================================== */
+
+/* --- Светлая тема: базовый тон #e3e9f3 --- */
+
+.root {
+    -fx-background: #e3e9f3;
+}
+
+.split-pane {
+    -fx-background-color: #e3e9f3;
+}
+
+.split-pane-divider {
+    -fx-background-color: rgba(163, 177, 198, 0.40);
+}
+
+.split-pane-divider:hover {
+    -fx-background-color: #2563eb;
+}
+
+.sidebar {
+    -fx-background-color: #e3e9f3;
+}
+
+.sidebar-card {
+    -fx-background-color: #e3e9f3;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.85) rgba(163, 177, 198, 0.35) rgba(163, 177, 198, 0.40) rgba(255, 255, 255, 0.80);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.55), 14, 0, 5, 6);
+}
+
+.canvas-pane {
+    -fx-background-color: #e9eef7;
+}
+
+.menu-bar {
+    -fx-background-color: #1c2333;
+    -fx-border-color: transparent transparent rgba(255, 255, 255, 0.08) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.program-toolbar-wrap {
+    -fx-background-color: #e3e9f3;
+    -fx-border-color: rgba(255, 255, 255, 0.80) transparent rgba(163, 177, 198, 0.35) transparent;
+    -fx-border-width: 1 0 1 0;
+}
+
+.status-panel {
+    -fx-background-color: #e3e9f3;
+    -fx-border-color: rgba(255, 255, 255, 0.85) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.45), 12, 0, 0, -4);
+}
+
+.cycle-speed-block,
+.sim-actions-mini-block {
+    -fx-background-color: #e3e9f3;
+    -fx-border-color: rgba(255, 255, 255, 0.85) rgba(163, 177, 198, 0.35) rgba(163, 177, 198, 0.40) rgba(255, 255, 255, 0.80);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.55), 12, 0, 4, 5);
+}
+
+/* Выпуклые кнопки; при нажатии — «вдавливаются». */
+.secondary-button {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(255, 255, 255, 0.90) rgba(163, 177, 198, 0.40) rgba(163, 177, 198, 0.45) rgba(255, 255, 255, 0.85);
+    -fx-border-width: 1;
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.60), 10, 0, 4, 4);
+}
+
+.secondary-button:hover {
+    -fx-border-color: rgba(37, 99, 235, 0.55);
+    -fx-text-fill: #1d4ed8;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #dde4f0;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.75), 9, 0, 3, 3);
+}
+
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.75), 12, 0, 4, 4);
+}
+
+.button:pressed {
+    -fx-translate-y: 0;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.75), 9, 0, 3, 3);
+}
+
+.primary-button {
+    /* Спокойный тёмно-зелёный без «блеска» — текст читается легко. */
+    -fx-background-color: linear-gradient(to bottom right, #1f9d57, #157347);
+    -fx-border-color: rgba(255, 255, 255, 0.30) rgba(15, 90, 55, 0.65) rgba(15, 90, 55, 0.75) rgba(255, 255, 255, 0.25);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(20, 100, 60, 0.35), 10, 0, 3, 3);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #24aa60, #18814f);
+}
+
+.danger-button {
+    -fx-background-color: linear-gradient(to bottom right, #c92929, #8f1d1d);
+    -fx-border-color: rgba(255, 255, 255, 0.28) rgba(127, 29, 29, 0.72) rgba(127, 29, 29, 0.82) rgba(255, 255, 255, 0.22);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(127, 29, 29, 0.38), 10, 0, 3, 3);
+}
+
+.status-panel .primary-button {
+    -fx-background-color: linear-gradient(to bottom right, #2ccf78, #1f9d57);
+    -fx-border-color: rgba(255, 255, 255, 0.42) rgba(21, 128, 61, 0.55) rgba(21, 128, 61, 0.65) rgba(255, 255, 255, 0.36);
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.30), 10, 0, 3, 3);
+}
+
+.status-panel .danger-button {
+    -fx-background-color: linear-gradient(to bottom right, #ef4444, #b91c1c);
+    -fx-border-color: rgba(255, 255, 255, 0.34) rgba(153, 27, 27, 0.62) rgba(153, 27, 27, 0.72) rgba(255, 255, 255, 0.28);
+    -fx-effect: dropshadow(gaussian, rgba(185, 28, 28, 0.34), 10, 0, 3, 3);
+}
+
+/* Поля ввода — «вдавленные». */
+.text-field,
+.text-area {
+    -fx-background-color: #dbe2ee;
+    -fx-border-color: rgba(163, 177, 198, 0.35) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(163, 177, 198, 0.35);
+    -fx-border-width: 1;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.55), 8, 0, 2, 2);
+    -fx-text-fill: #0f172a;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-border-color: #2563eb;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.45), 7, 0, 2, 2);
+}
+
+.combo-box-base,
+.choice-box,
+.spinner {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-border-color: rgba(255, 255, 255, 0.85) rgba(163, 177, 198, 0.40) rgba(163, 177, 198, 0.45) rgba(255, 255, 255, 0.80);
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.50), 8, 0, 3, 3);
+}
+
+.progress-bar > .track {
+    -fx-background-color: #d6deeb;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.6), 6, 0, 2, 2);
+}
+
+.slider .track {
+    -fx-background-color: #d6deeb;
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.6), 5, 0, 1, 1);
+}
+
+.slider .thumb {
+    -fx-background-color: linear-gradient(to bottom right, #f3f6fc, #dfe6f1);
+    -fx-border-color: rgba(255, 255, 255, 0.9) rgba(163, 177, 198, 0.5) rgba(163, 177, 198, 0.5) rgba(255, 255, 255, 0.9);
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.7), 7, 0, 2, 2);
+}
+
+/* Окно истории и настроек. */
+.settings-window-root,
+.history-window-root,
+.history-window-body,
+.history-content-row,
+.history-toolbar {
+    -fx-background-color: #e3e9f3;
+}
+
+.settings-window-root .label,
+.settings-window-root .check-box,
+.settings-window-root .radio-button,
+.settings-window-root .section-title {
+    -fx-text-fill: #0f172a;
+}
+
+.settings-window-root .muted-label {
+    -fx-text-fill: #475569;
+}
+
+.settings-window-root .result-label {
+    -fx-text-fill: #0f766e;
+}
+
+.settings-combo.combo-box-base {
+    -fx-background-color: linear-gradient(to bottom, #f8fafc, #e7eef8);
+    -fx-border-color: #8fb5f7;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.settings-combo.combo-box .list-cell,
+.settings-combo-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0f172a;
+}
+
+.settings-combo.combo-box .combo-box-popup .list-view,
+.settings-combo.combo-box .combo-box-popup .list-cell,
+.combo-box-popup .settings-combo-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0f172a;
+}
+
+/* Выбранный пункт не выделяем цветом — только лёгкая подсветка под курсором. */
+.settings-combo.combo-box .combo-box-popup .list-cell:hover,
+.combo-box-popup .settings-combo-cell:hover {
+    -fx-background-color: #e8f0fb;
+    -fx-text-fill: #0f172a;
+}
+
+.settings-combo.combo-box .combo-box-popup .list-cell:focused,
+.settings-combo.combo-box .combo-box-popup .list-cell:selected,
+.combo-box-popup .settings-combo-cell:focused,
+.combo-box-popup .settings-combo-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0f172a;
+}
+
+.button.button-36,
+.history-toolbar .button.button-36 {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.90) rgba(163, 177, 198, 0.40) rgba(163, 177, 198, 0.45) rgba(255, 255, 255, 0.85);
+    -fx-border-width: 1;
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.60), 12, 0, 4, 5);
+}
+
+.button.button-36:pressed,
+.history-toolbar .button.button-36:pressed {
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.75), 10, 0, 3, 3);
+}
+
+.history-search-button {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-border-color: rgba(255, 255, 255, 0.90) rgba(163, 177, 198, 0.40) rgba(163, 177, 198, 0.45) rgba(255, 255, 255, 0.85);
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.60), 10, 0, 4, 4);
+}
+
+.history-search-button .history-search-icon {
+    -fx-fill: #334155;
+}
+
+.history-search-button-active {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    -fx-border-color: rgba(255, 255, 255, 0.6) rgba(29, 78, 216, 0.7) rgba(29, 78, 216, 0.8) rgba(255, 255, 255, 0.55);
+}
+
+.history-search-button-active .history-search-icon {
+    -fx-fill: #ffffff;
+}
+
+.history-search-field {
+    -fx-background-color: #dbe2ee;
+    -fx-border-color: rgba(163, 177, 198, 0.35) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.75) rgba(163, 177, 198, 0.35);
+    -fx-effect: innershadow(gaussian, rgba(146, 161, 184, 0.55), 8, 0, 2, 2);
+    -fx-text-fill: #0f172a;
+}
+
+.history-search-field:focused {
+    -fx-border-color: #2563eb;
+}
+
+.history-search-status {
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+    -fx-padding: 0 16 0 16;
+}
+
+/* Список истории прозрачный над базовым тоном. */
+.history-list-view,
+.history-list-view:focused,
+.history-list-view > .virtual-flow,
+.history-list-view > .virtual-flow > .clipped-container,
+.history-list-view > .virtual-flow > .clipped-container > .sheet {
+    -fx-background-color: transparent;
+}
+
+/* Окно 3D-симуляции. */
+.simulation3d-root,
+.simulation3d-viewport {
+    -fx-background-color: #e9eef7;
+}
+
+.simulation3d-toolbar {
+    -fx-background-color: #e3e9f3;
+    -fx-border-color: transparent transparent rgba(163, 177, 198, 0.40) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.simulation3d-toolbar .secondary-button {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-border-color: rgba(255, 255, 255, 0.90) rgba(163, 177, 198, 0.40) rgba(163, 177, 198, 0.45) rgba(255, 255, 255, 0.85);
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.60), 9, 0, 3, 4);
+}
+
+.simulation3d-toolbar .simulation3d-mode-active,
+.simulation3d-toolbar .secondary-button.simulation3d-mode-active {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    -fx-border-color: rgba(255, 255, 255, 0.6) rgba(29, 78, 216, 0.7) rgba(29, 78, 216, 0.8) rgba(255, 255, 255, 0.55);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.55), 12, 0, 0, 2);
+}
+
+.simulation3d-status {
+    -fx-text-fill: #334155;
+}
+
+.simulation3d-coords {
+    -fx-text-fill: #0f172a;
+}
+
+.dialog-pane {
+    -fx-background-color: #e3e9f3;
+    -fx-effect: dropshadow(gaussian, rgba(146, 161, 184, 0.7), 22, 0, 6, 8);
+}
+
+/* ===========================================================================
+   ТЁМНАЯ ТЕМА: базовый тон #161b27, мягкий рельеф, контрастный текст.
+   =========================================================================== */
+
+.dark-theme {
+    -fx-base: #161b27;
+    -fx-background: #161b27;
+    -fx-control-inner-background: #11151f;
+    -fx-accent: #3b82f6;
+    -fx-focus-color: #60a5fa;
+    -fx-faint-focus-color: rgba(96, 165, 250, 0.22);
+}
+
+.dark-theme .split-pane,
+.dark-theme .sidebar {
+    -fx-background-color: #161b27;
+}
+
+.dark-theme .split-pane-divider {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .split-pane-divider:hover {
+    -fx-background-color: #60a5fa;
+}
+
+.dark-theme .sidebar-card {
+    -fx-background-color: linear-gradient(to bottom right, #1b2130, #141926);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.09) rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.50) rgba(255, 255, 255, 0.07);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.60), 16, 0, 5, 6);
+}
+
+.dark-theme .canvas-pane {
+    -fx-background-color: #121724;
+}
+
+.dark-theme .menu-bar {
+    -fx-background-color: #10141f;
+    -fx-border-color: transparent transparent rgba(255, 255, 255, 0.07) transparent;
+}
+
+.dark-theme .program-toolbar-wrap {
+    -fx-background-color: #161b27;
+    -fx-border-color: rgba(255, 255, 255, 0.07) transparent rgba(0, 0, 0, 0.45) transparent;
+    -fx-border-width: 1 0 1 0;
+}
+
+.dark-theme .status-panel {
+    -fx-background-color: #161b27;
+    -fx-border-color: rgba(255, 255, 255, 0.08) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 12, 0, 0, -4);
+}
+
+.dark-theme .cycle-speed-block,
+.dark-theme .sim-actions-mini-block {
+    -fx-background-color: linear-gradient(to bottom right, #1b2130, #141926);
+    -fx-border-color: rgba(255, 255, 255, 0.09) rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.50) rgba(255, 255, 255, 0.07);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 12, 0, 4, 5);
+}
+
+.dark-theme .secondary-button {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(255, 255, 255, 0.12) rgba(0, 0, 0, 0.50) rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.10);
+    -fx-border-width: 1;
+    -fx-text-fill: #e8edf7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.60), 10, 0, 4, 4);
+}
+
+.dark-theme .secondary-button:hover {
+    -fx-border-color: rgba(96, 165, 250, 0.65);
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .secondary-button:pressed {
+    -fx-background-color: #141926;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.70), 9, 0, 3, 3);
+}
+
+.dark-theme .status-panel .primary-button {
+    -fx-background-color: linear-gradient(to bottom right, #1f9d57, #157347);
+    -fx-border-color: rgba(255, 255, 255, 0.30) rgba(15, 90, 55, 0.65) rgba(15, 90, 55, 0.75) rgba(255, 255, 255, 0.25);
+    -fx-effect: dropshadow(gaussian, rgba(20, 100, 60, 0.35), 10, 0, 3, 3);
+}
+
+.dark-theme .status-panel .danger-button {
+    -fx-background-color: linear-gradient(to bottom right, #c92929, #8f1d1d);
+    -fx-border-color: rgba(255, 255, 255, 0.28) rgba(127, 29, 29, 0.72) rgba(127, 29, 29, 0.82) rgba(255, 255, 255, 0.22);
+    -fx-effect: dropshadow(gaussian, rgba(127, 29, 29, 0.38), 10, 0, 3, 3);
+}
+
+.dark-theme .button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.70), 12, 0, 4, 4);
+}
+
+.dark-theme .button:pressed {
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.70), 9, 0, 3, 3);
+}
+
+.dark-theme .text-field,
+.dark-theme .text-area {
+    -fx-background-color: #11151f;
+    -fx-border-color: rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.07) rgba(255, 255, 255, 0.07) rgba(0, 0, 0, 0.55);
+    -fx-border-width: 1;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.55), 8, 0, 2, 2);
+    -fx-text-fill: #f1f5f9;
+    -fx-prompt-text-fill: #64748b;
+}
+
+.dark-theme .text-field:focused,
+.dark-theme .text-area:focused {
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .combo-box-base,
+.dark-theme .choice-box,
+.dark-theme .spinner {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-border-color: rgba(255, 255, 255, 0.12) rgba(0, 0, 0, 0.50) rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.10);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 8, 0, 3, 3);
+}
+
+.dark-theme .progress-bar > .track {
+    -fx-background-color: #11151f;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 6, 0, 2, 2);
+}
+
+.dark-theme .progress-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #60a5fa, #3b82f6);
+    -fx-effect: dropshadow(gaussian, rgba(96, 165, 250, 0.45), 8, 0, 0, 0);
+}
+
+.dark-theme .slider .track {
+    -fx-background-color: #11151f;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 5, 0, 1, 1);
+}
+
+.dark-theme .slider .thumb {
+    -fx-background-color: linear-gradient(to bottom right, #2b3550, #1d2435);
+    -fx-border-color: rgba(255, 255, 255, 0.14) rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(96, 165, 250, 0.40), 7, 0, 0, 0);
+}
+
+.dark-theme .settings-window-root,
+.dark-theme .history-window-root,
+.dark-theme .history-window-body,
+.dark-theme .history-content-row,
+.dark-theme .history-toolbar {
+    -fx-background-color: #161b27;
+}
+
+.dark-theme .settings-window-root .label,
+.dark-theme .settings-window-root .check-box,
+.dark-theme .settings-window-root .radio-button,
+.dark-theme .settings-window-root .section-title,
+.dark-theme .settings-window-root .muted-label {
+    -fx-text-fill: #ffffff;
+}
+
+.dark-theme .settings-window-root .result-label {
+    -fx-text-fill: #67e8f9;
+}
+
+.dark-theme .settings-combo.combo-box-base {
+    -fx-background-color: linear-gradient(to bottom, #263247, #151c2b);
+    -fx-border-color: #52627a;
+}
+
+.dark-theme .settings-combo.combo-box .list-cell,
+.dark-theme .settings-combo-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .settings-combo.combo-box .combo-box-popup .list-view,
+.dark-theme .settings-combo.combo-box .combo-box-popup .list-cell,
+.dark-theme .combo-box-popup .settings-combo-cell {
+    -fx-background-color: #111827;
+    -fx-text-fill: #f8fafc;
+}
+
+/* Тёмная тема: выбранный пункт не выделяем, лёгкая подсветка только под курсором. */
+.dark-theme .settings-combo.combo-box .combo-box-popup .list-cell:hover,
+.dark-theme .combo-box-popup .settings-combo-cell:hover {
+    -fx-background-color: #243049;
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .settings-combo.combo-box .combo-box-popup .list-cell:focused,
+.dark-theme .settings-combo.combo-box .combo-box-popup .list-cell:selected,
+.dark-theme .combo-box-popup .settings-combo-cell:focused,
+.dark-theme .combo-box-popup .settings-combo-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .settings-window-footer {
+    -fx-background-color: #141926;
+    -fx-border-color: rgba(255, 255, 255, 0.08) transparent transparent transparent;
+}
+
+.dark-theme .history-list-view,
+.dark-theme .history-list-view:focused,
+.dark-theme .history-list-view > .virtual-flow,
+.dark-theme .history-list-view > .virtual-flow > .clipped-container,
+.dark-theme .history-list-view > .virtual-flow > .clipped-container > .sheet {
+    -fx-background-color: transparent;
+}
+
+.dark-theme .button.button-36,
+.dark-theme .history-toolbar .button.button-36 {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.12) rgba(0, 0, 0, 0.50) rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.10);
+    -fx-border-width: 1;
+    -fx-text-fill: #f1f5f9;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.60), 12, 0, 4, 5);
+}
+
+.dark-theme .history-search-button {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-border-color: rgba(255, 255, 255, 0.12) rgba(0, 0, 0, 0.50) rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.10);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.60), 10, 0, 4, 4);
+}
+
+.dark-theme .history-search-button .history-search-icon {
+    -fx-fill: #cbd5e1;
+}
+
+.dark-theme .history-search-button-active {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    -fx-border-color: rgba(191, 219, 254, 0.55);
+}
+
+.dark-theme .history-search-button-active .history-search-icon {
+    -fx-fill: #ffffff;
+}
+
+.dark-theme .history-search-field {
+    -fx-background-color: #11151f;
+    -fx-border-color: rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.07) rgba(255, 255, 255, 0.07) rgba(0, 0, 0, 0.55);
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.55), 8, 0, 2, 2);
+    -fx-text-fill: #f1f5f9;
+}
+
+.dark-theme .history-search-field:focused {
+    -fx-border-color: #60a5fa;
+}
+
+.dark-theme .history-search-status {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .simulation3d-root,
+.dark-theme .simulation3d-viewport {
+    -fx-background-color: #121724;
+}
+
+.dark-theme .simulation3d-toolbar {
+    -fx-background-color: #161b27;
+    -fx-border-color: transparent transparent rgba(0, 0, 0, 0.55) transparent;
+}
+
+.dark-theme .simulation3d-toolbar .secondary-button {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-border-color: rgba(255, 255, 255, 0.12) rgba(0, 0, 0, 0.50) rgba(0, 0, 0, 0.55) rgba(255, 255, 255, 0.10);
+    -fx-text-fill: #e8edf7;
+}
+
+.dark-theme .simulation3d-toolbar .simulation3d-mode-active,
+.dark-theme .simulation3d-toolbar .secondary-button.simulation3d-mode-active {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #2563eb);
+    -fx-border-color: rgba(191, 219, 254, 0.55);
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.50), 12, 0, 0, 2);
+}
+
+.dark-theme .simulation3d-status {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .simulation3d-coords {
+    -fx-text-fill: #f8fafc;
+}
+
+.dark-theme .dialog-pane {
+    -fx-background-color: #161b27;
+    -fx-border-color: rgba(255, 255, 255, 0.10);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 24, 0, 6, 8);
+}
+
+.dark-theme .tooltip {
+    -fx-background-color: #1d2433;
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-text-fill: #f1f5f9;
+}
+
+
+/* === Полировка кнопок: читаемость текста в активных/нажатых состояниях ===== */
+
+/* Прозрачный скролл правой панели выбора типа инструмента. */
+.tool-picker-right-scroll,
+.tool-picker-right-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.dark-theme .tool-picker-right-scroll,
+.dark-theme .tool-picker-right-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Активная (синяя) кнопка остаётся с белым текстом и при наведении/нажатии. */
+.simulation3d-toolbar .simulation3d-mode-active:hover,
+.simulation3d-toolbar .simulation3d-mode-active:pressed,
+.dark-theme .simulation3d-toolbar .simulation3d-mode-active:hover,
+.dark-theme .simulation3d-toolbar .simulation3d-mode-active:pressed {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: linear-gradient(to bottom right, #4f8ef7, #2f6fe0);
+}
+
+/* Нажатые обычные кнопки: фон темнеет, текст остаётся контрастным. */
+.secondary-button:pressed {
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .secondary-button:pressed {
+    -fx-text-fill: #e8edf7;
+}
+
+.primary-button:pressed,
+.danger-button:pressed,
+.dark-theme .primary-button:pressed,
+.dark-theme .danger-button:pressed {
+    -fx-text-fill: #ffffff;
+}
+
+/* Кнопки категорий: контраст при наведении/нажатии в обеих темах. */
+.tool-picker-category-button:hover {
+    -fx-text-fill: #0c4a6e;
+}
+
+.tool-picker-category-button:pressed {
+    -fx-background-color: #bae6fd;
+    -fx-text-fill: #0c4a6e;
+}
+
+.dark-theme .tool-picker-category-button:hover,
+.dark-theme .tool-picker-category-button:pressed {
+    -fx-text-fill: #ffffff;
+}
+
+/* Выпадающие списки в тёмной теме: светлый текст пунктов. */
+.dark-theme .combo-box .list-cell,
+.dark-theme .combo-box-popup .list-view .list-cell {
+    -fx-text-fill: #e8edf7;
+    -fx-background-color: transparent;
+}
+
+.dark-theme .combo-box-popup .list-view {
+    -fx-background-color: #161b27;
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark-theme .combo-box-popup .list-view .list-cell:hover,
+.dark-theme .combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: #ffffff;
+}
+
+/* Фокус с клавиатуры: тонкое синее кольцо вместо жирной рамки. */
+.button:focused {
+    -fx-border-color: rgba(37, 99, 235, 0.65);
+}
+
+.dark-theme .button:focused {
+    -fx-border-color: rgba(96, 165, 250, 0.65);
+}
+
+
+/* === Точечные фиксы тёмной темы окна «Типы инструмента» ==================== */
+
+/* Плитки позиций в тёмной теме тёмные (неоморфный слой) — цифры должны быть светлыми. */
+.dark-theme .tool-position-button .tool-position-number {
+    -fx-text-fill: #f1f5f9;
+}
+
+/* При наведении/нажатии плитка светлеет (бело-голубой градиент) — цифра тёмная. */
+.dark-theme .tool-position-button:hover .tool-position-number,
+.dark-theme .tool-position-button:pressed .tool-position-number {
+    -fx-text-fill: #0f172a;
+}
+
+.dark-theme .tool-position-button.simulation3d-mode-active .tool-position-number {
+    -fx-text-fill: #ffffff;
+}
+
+/* Мягкое выделение строки таблицы инструментов в тёмной теме. */
+.dark-theme .tool-picker-table .table-row-cell:selected {
+    -fx-background-color: rgba(59, 130, 246, 0.28);
+}
+
+.dark-theme .tool-picker-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+}
+
+/* ==========================================================================
+   Окно настроек: карточная раскладка (см. settings-panel.fxml).
+
+   ВАЖНО про тёмную тему. У корневого BorderPane окна настроек классы
+   settings-window-root и dark-theme висят на ОДНОМ узле, поэтому правила вида
+   ".dark-theme .settings-window-root" (селектор потомка) не срабатывают вообще.
+   Здесь используется составной селектор без пробела: ".settings-window-root.dark-theme".
+
+   Блок намеренно в конце файла: при равной специфичности он должен побеждать
+   общие правила окна настроек, объявленные выше.
+   ========================================================================== */
+
+.settings-root {
+    -fx-background-color: transparent;
+}
+
+.settings-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.07), 12, 0, 0, 3);
+}
+
+.settings-card .settings-card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f172a;
+}
+
+.settings-card .settings-sub-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2563eb;
+}
+
+.settings-card .settings-field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #64748b;
+}
+
+.settings-card .settings-badge {
+    -fx-background-color: #eff6ff;
+    -fx-background-radius: 8;
+    -fx-border-color: #bfdbfe;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1d4ed8;
+}
+
+.settings-card .separator .line {
+    -fx-border-color: #e2e8f0 transparent transparent transparent;
+}
+
+/* --- тёмная тема: чёрный фон окна, блоки чуть светлее и с рамкой --- */
+
+.settings-window-root.dark-theme {
+    -fx-background-color: #000000;
+}
+
+.settings-window-root.dark-theme .settings-window-footer {
+    -fx-background-color: #0a0b0e;
+    -fx-border-color: rgba(255, 255, 255, 0.10) transparent transparent transparent;
+}
+
+/* Общий белый текст (в т.ч. подсказка muted-label у инструментов). */
+.settings-window-root.dark-theme .label,
+.settings-window-root.dark-theme .check-box,
+.settings-window-root.dark-theme .section-title,
+.settings-window-root.dark-theme .muted-label {
+    -fx-text-fill: #ffffff;
+}
+
+.settings-window-root.dark-theme .result-label {
+    -fx-text-fill: #67e8f9;
+}
+
+/* Ниже — уточнения поверх общего белого (побеждают позицией при равной специфичности). */
+
+.settings-window-root.dark-theme .settings-card {
+    -fx-background-color: #15181e;
+    -fx-border-color: #363c46;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.55), 14, 0, 0, 4);
+}
+
+.settings-window-root.dark-theme .settings-card-title {
+    -fx-text-fill: #f8fafc;
+}
+
+.settings-window-root.dark-theme .settings-sub-title {
+    -fx-text-fill: #60a5fa;
+}
+
+.settings-window-root.dark-theme .settings-field-label {
+    -fx-text-fill: #a8b4c4;
+}
+
+.settings-window-root.dark-theme .settings-badge {
+    -fx-background-color: #1a2030;
+    -fx-border-color: #3b82f6;
+    -fx-text-fill: #93c5fd;
+}
+
+.settings-window-root.dark-theme .separator .line {
+    -fx-border-color: #363c46 transparent transparent transparent;
+}
+
+/* Прокручиваемый список смещений внутри карточки: фон прозрачный, чтобы была
+   видна сама карточка, а не белая подложка ScrollPane. */
+.settings-offsets-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.settings-offsets-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.settings-window-root.dark-theme .settings-offsets-scroll,
+.settings-window-root.dark-theme .settings-offsets-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+/* ==========================================================================
+   Плашка проблем программы у заголовка «Программа»: код и краткий текст,
+   красная (симуляция не пойдёт) или жёлтая (пойдёт, но стоит посмотреть).
+   ========================================================================== */
+
+.diagnostic-badge {
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.diagnostic-badge.diagnostic-error {
+    -fx-background-color: #fee2e2;
+    -fx-border-color: #ef4444;
+    -fx-text-fill: #b91c1c;
+}
+
+.diagnostic-badge.diagnostic-warning {
+    -fx-background-color: #fef3c7;
+    -fx-border-color: #f59e0b;
+    -fx-text-fill: #b45309;
+}
+
+.dark-theme .diagnostic-badge.diagnostic-error {
+    -fx-background-color: #3b0f0f;
+    -fx-border-color: #ef4444;
+    -fx-text-fill: #fca5a5;
+}
+
+.dark-theme .diagnostic-badge.diagnostic-warning {
+    -fx-background-color: #3a2a06;
+    -fx-border-color: #f59e0b;
+    -fx-text-fill: #fcd34d;
+}
+
+/* ==========================================================================
+   Строка настроек, только что заведённая автоисправлением. Подсветка гаснет
+   через несколько секунд: без неё новая точка смещения терялась среди прочих.
+   ========================================================================== */
+
+.settings-just-added {
+    -fx-background-color: #dcfce7;
+    -fx-background-radius: 6;
+    -fx-border-color: #16a34a;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-padding: 2;
+}
+
+.settings-window-root.dark-theme .settings-just-added {
+    -fx-background-color: #06281a;
+    -fx-border-color: #22c55e;
+}
+
+/* ------------------------------------------------------------------ */
+/* Два окна кода: слева канал 2, справа канал 1                        */
+/* ------------------------------------------------------------------ */
+
+.channel-toggle-button {
+    -fx-background-color: linear-gradient(to bottom right, #eef2f9, #dde4f0);
+    -fx-border-color: #94a3b8;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12 4 12;
+    -fx-min-height: 28;
+}
+
+.channel-pane {
+    -fx-spacing: 0;
+}
+
+/* Подпись канала над окном: по щелчку канал становится исполняемым. */
+.channel-pane-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748b;
+    -fx-padding: 3 8 3 8;
+    -fx-background-color: #eef2f9;
+    -fx-border-color: transparent transparent #cbd5e1 transparent;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.channel-pane-title-active {
+    -fx-text-fill: #0f172a;
+    -fx-background-color: #dbeafe;
+    -fx-border-color: transparent transparent #2563eb transparent;
+    -fx-border-width: 2;
+}
+
+.dark-theme .channel-toggle-button {
+    -fx-background-color: linear-gradient(to bottom right, #232b3d, #181e2c);
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-text-fill: #e8edf7;
+}
+
+.dark-theme .channel-pane-title {
+    -fx-text-fill: #94a3b8;
+    -fx-background-color: #1b2233;
+    -fx-border-color: transparent transparent #2b3446 transparent;
+}
+
+.dark-theme .channel-pane-title-active {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1e3a5f;
+    -fx-border-color: transparent transparent #60a5fa transparent;
+}
+
+/* Окно программы параметров. */
+/* Программу параметров читают за станком, поэтому шрифт крупнее обычного. */
+.parameter-program-area {
+    -fx-font-size: 18px;
+}
+
+.parameter-program-area .content {
+    -fx-background-color: #ffffff;
+}
+
+.settings-window-root.dark-theme .parameter-program-area .content,
+.dark-theme .parameter-program-area .content {
+    -fx-background-color: #131a27;
+}
+
+.dark-theme .parameter-program-area {
+    -fx-text-fill: #e8edf7;
+}
+
+/* ------------------------------------------------------------------ */
+/* Раскраска текста программы                                          */
+/*                                                                     */
+/* Числа оставлены самыми контрастными: именно их читают. Слова         */
+/* синхронизации каналов (N_WAITM, SETM) выделены отдельно — в          */
+/* двухканальной программе по ним видно, где головки ждут друг друга.   */
+/* ------------------------------------------------------------------ */
+
+.gcode-code-area .text.gcode-number {
+    -fx-fill: #0f172a;
+}
+
+.gcode-code-area .text.gcode-axis {
+    -fx-fill: #dc2626;
+    -fx-font-weight: bold;
+}
+
+.gcode-code-area .text.gcode-gcode {
+    -fx-fill: #2563eb;
+}
+
+.gcode-code-area .text.gcode-mcode {
+    -fx-fill: #9333ea;
+}
+
+.gcode-code-area .text.gcode-tool {
+    -fx-fill: #0d9488;
+    -fx-font-weight: bold;
+}
+
+.gcode-code-area .text.gcode-feed {
+    -fx-fill: #b45309;
+}
+
+.gcode-code-area .text.gcode-name {
+    -fx-fill: #15803d;
+}
+
+.gcode-code-area .text.gcode-sync {
+    -fx-fill: #db2777;
+    -fx-font-weight: bold;
+}
+
+.gcode-code-area .text.gcode-keyword {
+    -fx-fill: #7c3aed;
+}
+
+.gcode-code-area .text.gcode-label {
+    -fx-fill: #7c3aed;
+    -fx-font-weight: bold;
+}
+
+.gcode-code-area .text.gcode-comment {
+    -fx-fill: #6b7280;
+}
+
+.gcode-code-area .text.gcode-frame {
+    -fx-fill: #94a3b8;
+}
+
+.gcode-code-area .text.gcode-string {
+    -fx-fill: #0e7490;
+}
+
+.dark-theme .gcode-code-area .text.gcode-number {
+    -fx-fill: #e5e7eb;
+}
+
+.dark-theme .gcode-code-area .text.gcode-axis {
+    -fx-fill: #f87171;
+}
+
+.dark-theme .gcode-code-area .text.gcode-gcode {
+    -fx-fill: #60a5fa;
+}
+
+.dark-theme .gcode-code-area .text.gcode-mcode {
+    -fx-fill: #c084fc;
+}
+
+.dark-theme .gcode-code-area .text.gcode-tool {
+    -fx-fill: #2dd4bf;
+}
+
+.dark-theme .gcode-code-area .text.gcode-feed {
+    -fx-fill: #fbbf24;
+}
+
+.dark-theme .gcode-code-area .text.gcode-name {
+    -fx-fill: #4ade80;
+}
+
+.dark-theme .gcode-code-area .text.gcode-sync {
+    -fx-fill: #f472b6;
+}
+
+.dark-theme .gcode-code-area .text.gcode-keyword {
+    -fx-fill: #a78bfa;
+}
+
+.dark-theme .gcode-code-area .text.gcode-label {
+    -fx-fill: #a78bfa;
+}
+
+.dark-theme .gcode-code-area .text.gcode-comment {
+    -fx-fill: #7c8698;
+}
+
+.dark-theme .gcode-code-area .text.gcode-frame {
+    -fx-fill: #64748b;
+}
+
+.dark-theme .gcode-code-area .text.gcode-string {
+    -fx-fill: #22d3ee;
+}
+
+/* Масштаб окна: компактные кнопки в строке меню, как в браузере. */
+.ui-scale-box {
+    -fx-padding: 0 4 0 4;
+}
+
+.ui-scale-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #475569;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-min-width: 28px;
+    -fx-pref-height: 26px;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+}
+
+.ui-scale-button:hover {
+    -fx-background-color: rgba(148, 163, 184, 0.25);
+}
+
+.ui-scale-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 12px;
+    -fx-min-width: 46px;
+    -fx-alignment: center;
+}
+
+.dark-theme .ui-scale-button {
+    -fx-text-fill: #cbd5e1;
+}
+
+.dark-theme .ui-scale-button:hover {
+    -fx-background-color: rgba(148, 163, 184, 0.28);
+}
+
+.dark-theme .ui-scale-label {
+    -fx-text-fill: #94a3b8;
+}
+
+/* Дуги: G2 по часовой, G3 против часовой. Оттенки не совпадают ни с одним
+   другим в разметке, и обе жирные — иначе среди G-кодов они теряются. */
+.gcode-code-area .text.gcode-arccw {
+    -fx-fill: #ea580c;
+    -fx-font-weight: bold;
+}
+
+.gcode-code-area .text.gcode-arcccw {
+    -fx-fill: #65a30d;
+    -fx-font-weight: bold;
+}
+
+.dark-theme .gcode-code-area .text.gcode-arccw {
+    -fx-fill: #fb923c;
+}
+
+.dark-theme .gcode-code-area .text.gcode-arcccw {
+    -fx-fill: #a3e635;
+}
+
+/* ===========================================================================
+   INTRASPECT UI — единый слой оформления поверх истории стилей выше.
+
+   Один набор правил на обе темы: цвета — именованные токены (looked-up colors),
+   светлые заданы на .root, тёмные переопределены на .dark-theme. Тёмный класс
+   висит либо на корне сцены (окна настроек и МСП), либо на узле внутри корня
+   (главное окно), поэтому у правил две тёмные формы:
+   ".root .dark-theme X" и ".root.dark-theme X". Они же поднимают специфичность
+   выше прежних слоёв; слой стоит последним и при равной специфичности тоже
+   побеждает. У диалогов корень сцены — сама DialogPane, поэтому их правила
+   составные: ".root.dialog-pane X", ".root.dark-theme.dialog-pane X".
+   =========================================================================== */
+
+.root {
+    ui-bg: #eef2f7;
+    ui-surface: #ffffff;
+    ui-surface-2: #f6f8fb;
+    ui-border: #dbe2ec;
+    ui-border-strong: #c2ccdb;
+    ui-text: #0f172a;
+    ui-muted: #5b6679;
+    ui-accent: #2563eb;
+    ui-accent-text: #1d4ed8;
+    ui-accent-soft: rgba(37, 99, 235, 0.10);
+    ui-shadow: rgba(15, 23, 42, 0.08);
+    ui-shadow-strong: rgba(15, 23, 42, 0.16);
+    ui-btn-top: #ffffff;
+    ui-btn-bottom: #f2f5fa;
+    ui-btn-hover-top: #ffffff;
+    ui-btn-hover-bottom: #e9eff8;
+    ui-btn-pressed: #e2e8f1;
+    ui-btn-border: #cdd6e3;
+    ui-field: #ffffff;
+    ui-field-border: #cdd6e3;
+    ui-row-alt: #f8fafc;
+    ui-warm: #ea580c;
+    ui-warm-text: #c2410c;
+    ui-success-text: #15803d;
+    ui-danger-text: #b91c1c;
+}
+
+.dark-theme,
+.root.dark-theme {
+    ui-bg: #0b111b;
+    ui-surface: #111926;
+    ui-surface-2: #162031;
+    ui-border: #233047;
+    ui-border-strong: #33445f;
+    ui-text: #e8eef7;
+    ui-muted: #97a5ba;
+    ui-accent: #3b82f6;
+    ui-accent-text: #93c5fd;
+    ui-accent-soft: rgba(59, 130, 246, 0.16);
+    ui-shadow: rgba(0, 0, 0, 0.38);
+    ui-shadow-strong: rgba(0, 0, 0, 0.55);
+    ui-btn-top: #212c40;
+    ui-btn-bottom: #1a2334;
+    ui-btn-hover-top: #29374f;
+    ui-btn-hover-bottom: #202b40;
+    ui-btn-pressed: #141c2a;
+    ui-btn-border: #2f3d56;
+    ui-field: #0d141f;
+    ui-field-border: #2a384f;
+    ui-row-alt: #131c2a;
+    ui-warm: #f97316;
+    ui-warm-text: #fdba74;
+    ui-success-text: #86efac;
+    ui-danger-text: #fca5a5;
+}
+
+/* --- Кнопки: обычные ----------------------------------------------------- */
+
+.root .button.secondary-button,
+.root .dark-theme .button.secondary-button,
+.root.dark-theme .button.secondary-button,
+.root .program-toolbar .button.program-toolbar-button,
+.root .dark-theme .program-toolbar .button.program-toolbar-button,
+.root .status-panel .button.status-center-button,
+.root .dark-theme .status-panel .button.status-center-button,
+.root .dark-theme .status-panel .button.secondary-button,
+.root.dialog-pane .button,
+.root.dark-theme.dialog-pane .button {
+    -fx-background-color: linear-gradient(to bottom, ui-btn-top, ui-btn-bottom);
+    -fx-background-insets: 0;
+    -fx-background-radius: 9;
+    -fx-border-color: ui-btn-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 9;
+    -fx-text-fill: ui-text;
+    -fx-effect: dropshadow(gaussian, ui-shadow, 6, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.root .button.secondary-button:hover,
+.root .dark-theme .button.secondary-button:hover,
+.root.dark-theme .button.secondary-button:hover,
+.root .program-toolbar .button.program-toolbar-button:hover,
+.root .dark-theme .program-toolbar .button.program-toolbar-button:hover,
+.root .status-panel .button.status-center-button:hover,
+.root .dark-theme .status-panel .button.status-center-button:hover,
+.root .dark-theme .status-panel .button.secondary-button:hover,
+.root.dialog-pane .button:hover,
+.root.dark-theme.dialog-pane .button:hover {
+    -fx-background-color: linear-gradient(to bottom, ui-btn-hover-top, ui-btn-hover-bottom);
+    -fx-border-color: ui-accent;
+    -fx-text-fill: ui-text;
+    -fx-effect: dropshadow(gaussian, ui-shadow-strong, 9, 0, 0, 2);
+}
+
+.root .button.secondary-button:pressed,
+.root .dark-theme .button.secondary-button:pressed,
+.root.dark-theme .button.secondary-button:pressed,
+.root .program-toolbar .button.program-toolbar-button:pressed,
+.root .dark-theme .program-toolbar .button.program-toolbar-button:pressed,
+.root .status-panel .button.status-center-button:pressed,
+.root .dark-theme .status-panel .button.status-center-button:pressed,
+.root .dark-theme .status-panel .button.secondary-button:pressed,
+.root.dialog-pane .button:pressed,
+.root.dark-theme.dialog-pane .button:pressed {
+    -fx-background-color: ui-btn-pressed;
+    -fx-border-color: ui-accent;
+    -fx-effect: innershadow(gaussian, ui-shadow-strong, 5, 0, 0, 1);
+}
+
+.root .button.secondary-button:focused,
+.root .dark-theme .button.secondary-button:focused,
+.root.dark-theme .button.secondary-button:focused,
+.root.dialog-pane .button:focused,
+.root.dark-theme.dialog-pane .button:focused {
+    -fx-border-color: ui-accent;
+}
+
+.root .button:disabled,
+.root .dark-theme .button:disabled,
+.root.dark-theme .button:disabled {
+    -fx-opacity: 0.45;
+    -fx-effect: null;
+}
+
+/* Активный режим в панели 3D — акцент поверх обычной кнопки. */
+.root .button.secondary-button.simulation3d-mode-active,
+.root .dark-theme .button.secondary-button.simulation3d-mode-active,
+.root.dark-theme .button.secondary-button.simulation3d-mode-active {
+    -fx-background-color: ui-accent-soft;
+    -fx-border-color: ui-accent;
+    -fx-text-fill: ui-accent-text;
+}
+
+/* --- Кнопки: действия ---------------------------------------------------- */
+
+/* СТАРТ, ЦИКЛ, «Сохранить», «Подключить»: сочный зелёный с мягким свечением. */
+.root .button.primary-button,
+.root .dark-theme .button.primary-button,
+.root.dark-theme .button.primary-button,
+.root .status-panel .button.primary-button,
+.root .dark-theme .status-panel .button.primary-button {
+    -fx-background-color: linear-gradient(to bottom, #22c55e, #15a34a);
+    -fx-background-insets: 0;
+    -fx-background-radius: 9;
+    -fx-border-color: #13893f;
+    -fx-border-width: 1;
+    -fx-border-radius: 9;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.35), 8, 0, 0, 2);
+}
+
+.root .button.primary-button:hover,
+.root .dark-theme .button.primary-button:hover,
+.root.dark-theme .button.primary-button:hover,
+.root .status-panel .button.primary-button:hover,
+.root .dark-theme .status-panel .button.primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #2fd670, #18b152);
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.55), 12, 0, 0, 2);
+}
+
+.root .button.primary-button:pressed,
+.root .dark-theme .button.primary-button:pressed,
+.root.dark-theme .button.primary-button:pressed,
+.root .status-panel .button.primary-button:pressed,
+.root .dark-theme .status-panel .button.primary-button:pressed {
+    -fx-background-color: #13893f;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.35), 6, 0, 0, 2);
+}
+
+/* СБРОС — красный того же рисунка. */
+.root .button.danger-button,
+.root .dark-theme .button.danger-button,
+.root .status-panel .button.danger-button,
+.root .dark-theme .status-panel .button.danger-button {
+    -fx-background-color: linear-gradient(to bottom, #ef4444, #d42a2a);
+    -fx-background-insets: 0;
+    -fx-background-radius: 9;
+    -fx-border-color: #b21f1f;
+    -fx-border-width: 1;
+    -fx-border-radius: 9;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(220, 38, 38, 0.32), 8, 0, 0, 2);
+}
+
+.root .button.danger-button:hover,
+.root .dark-theme .button.danger-button:hover,
+.root .status-panel .button.danger-button:hover,
+.root .dark-theme .status-panel .button.danger-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #f35d5d, #e03434);
+    -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.55), 12, 0, 0, 2);
+}
+
+.root .button.danger-button:pressed,
+.root .dark-theme .button.danger-button:pressed,
+.root .status-panel .button.danger-button:pressed,
+.root .dark-theme .status-panel .button.danger-button:pressed {
+    -fx-background-color: #b21f1f;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.35), 6, 0, 0, 2);
+}
+
+/* 3D-симуляция — главный тёплый акцент; настройки — та же рамка без заливки. */
+.root .button.sim-action-button,
+.root .dark-theme .button.sim-action-button {
+    -fx-background-insets: 0;
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 8 5 8;
+    -fx-cursor: hand;
+}
+
+.root .button.sim-action-primary,
+.root .dark-theme .button.sim-action-primary {
+    -fx-background-color: linear-gradient(to bottom, #fb923c, #ea580c);
+    -fx-border-color: #c2410c;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(234, 88, 12, 0.35), 8, 0, 0, 2);
+}
+
+.root .button.sim-action-primary:hover,
+.root .dark-theme .button.sim-action-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #fda15a, #f06a1c);
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.55), 12, 0, 0, 2);
+}
+
+.root .button.sim-action-primary:pressed,
+.root .dark-theme .button.sim-action-primary:pressed {
+    -fx-background-color: #c2410c;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.35), 6, 0, 0, 2);
+}
+
+.root .button.sim-action-secondary,
+.root .dark-theme .button.sim-action-secondary {
+    -fx-background-color: linear-gradient(to bottom, ui-btn-top, ui-btn-bottom);
+    -fx-border-color: ui-warm;
+    -fx-text-fill: ui-warm-text;
+    -fx-effect: dropshadow(gaussian, ui-shadow, 6, 0, 0, 1);
+}
+
+.root .button.sim-action-secondary:hover,
+.root .dark-theme .button.sim-action-secondary:hover {
+    -fx-background-color: rgba(249, 115, 22, 0.12);
+    -fx-effect: dropshadow(gaussian, rgba(249, 115, 22, 0.35), 10, 0, 0, 2);
+}
+
+.root .button.sim-action-secondary:pressed,
+.root .dark-theme .button.sim-action-secondary:pressed {
+    -fx-background-color: rgba(249, 115, 22, 0.22);
+    -fx-effect: null;
+}
+
+/* Инструменты в настройках: общая форма, цвет только у текста. */
+.root .button.settings-tool-action-button,
+.root .dark-theme .button.settings-tool-action-button,
+.root.dark-theme .button.settings-tool-action-button {
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 16 6 16;
+}
+
+.root .button.settings-tool-add-button,
+.root .dark-theme .button.settings-tool-add-button,
+.root.dark-theme .button.settings-tool-add-button {
+    -fx-text-fill: ui-success-text;
+}
+
+.root .button.settings-tool-edit-button,
+.root .dark-theme .button.settings-tool-edit-button,
+.root.dark-theme .button.settings-tool-edit-button {
+    -fx-text-fill: ui-accent-text;
+}
+
+.root .button.settings-tool-delete-button,
+.root .dark-theme .button.settings-tool-delete-button,
+.root.dark-theme .button.settings-tool-delete-button {
+    -fx-text-fill: ui-danger-text;
+}
+
+/* --- Панели главного окна ------------------------------------------------ */
+
+.root .status-panel,
+.root .dark-theme .status-panel {
+    -fx-background-color: ui-surface-2;
+    -fx-border-color: ui-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-effect: null;
+}
+
+.root .program-toolbar-wrap,
+.root .dark-theme .program-toolbar-wrap {
+    -fx-background-color: ui-surface-2;
+    -fx-border-color: ui-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.root .cycle-speed-block,
+.root .sim-actions-mini-block,
+.root .dark-theme .cycle-speed-block,
+.root .dark-theme .sim-actions-mini-block {
+    -fx-background-color: ui-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: ui-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, ui-shadow, 8, 0, 0, 2);
+}
+
+.root .status-panel .check-box,
+.root .dark-theme .status-panel .check-box {
+    -fx-text-fill: ui-text;
+}
+
+.root .status-panel .progress-status-label,
+.root .dark-theme .status-panel .progress-status-label {
+    -fx-text-fill: ui-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* --- Поля ввода и списки ------------------------------------------------- */
+
+.root .text-field,
+.root .dark-theme .text-field,
+.root.dark-theme .text-field,
+.root .combo-box-base,
+.root .dark-theme .combo-box-base,
+.root.dark-theme .combo-box-base {
+    -fx-background-color: ui-field;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: ui-field-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-effect: null;
+}
+
+.root .text-field,
+.root .dark-theme .text-field,
+.root.dark-theme .text-field {
+    -fx-text-fill: ui-text;
+    -fx-prompt-text-fill: ui-muted;
+    -fx-highlight-fill: ui-accent;
+    -fx-highlight-text-fill: #ffffff;
+}
+
+.root .text-field:focused,
+.root .dark-theme .text-field:focused,
+.root.dark-theme .text-field:focused,
+.root .combo-box-base:focused,
+.root .dark-theme .combo-box-base:focused,
+.root.dark-theme .combo-box-base:focused {
+    -fx-border-color: ui-accent;
+    -fx-effect: dropshadow(gaussian, ui-accent-soft, 6, 0.6, 0, 0);
+}
+
+.root .text-field:disabled,
+.root .dark-theme .text-field:disabled,
+.root.dark-theme .text-field:disabled {
+    -fx-opacity: 0.6;
+}
+
+.root .combo-box-base .list-cell,
+.root .dark-theme .combo-box-base .list-cell,
+.root.dark-theme .combo-box-base .list-cell {
+    -fx-text-fill: ui-text;
+    -fx-background-color: transparent;
+}
+
+.root .combo-box-base > .arrow-button > .arrow,
+.root .dark-theme .combo-box-base > .arrow-button > .arrow,
+.root.dark-theme .combo-box-base > .arrow-button > .arrow {
+    -fx-background-color: ui-muted;
+}
+
+/* --- Карточки: окна настроек и МСП --------------------------------------- */
+
+.root.settings-window-root,
+.root.settings-window-root.dark-theme {
+    -fx-background-color: ui-bg;
+}
+
+.root .settings-card,
+.root.settings-window-root.dark-theme .settings-card {
+    -fx-background-color: ui-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: ui-border;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, ui-shadow, 14, 0, 0, 3);
+}
+
+.root .settings-card .settings-card-title,
+.root.settings-window-root.dark-theme .settings-card .settings-card-title {
+    -fx-text-fill: ui-text;
+}
+
+.root .settings-card .settings-sub-title,
+.root.settings-window-root.dark-theme .settings-card .settings-sub-title {
+    -fx-text-fill: ui-accent-text;
+}
+
+.root .settings-card .settings-field-label,
+.root .settings-card .muted-label,
+.root.settings-window-root.dark-theme .settings-card .settings-field-label,
+.root.settings-window-root.dark-theme .settings-card .muted-label,
+.root.settings-window-root.dark-theme .muted-label {
+    -fx-text-fill: ui-muted;
+}
+
+.root .settings-card .settings-badge,
+.root.settings-window-root.dark-theme .settings-card .settings-badge {
+    -fx-background-color: ui-accent-soft;
+    -fx-background-radius: 10;
+    -fx-border-color: ui-accent;
+    -fx-border-radius: 10;
+    -fx-text-fill: ui-accent-text;
+    -fx-padding: 8 12 8 12;
+}
+
+.root .settings-card .separator .line,
+.root.settings-window-root.dark-theme .separator .line {
+    -fx-border-color: ui-border transparent transparent transparent;
+}
+
+.root.settings-window-root .settings-window-footer,
+.root.settings-window-root.dark-theme .settings-window-footer {
+    -fx-background-color: ui-surface-2;
+    -fx-border-color: ui-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Мелкий текст кнопок окон (10 px) читался с трудом. */
+.root.settings-window-root .button.secondary-button,
+.root.settings-window-root .button.primary-button {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 7 16 7 16;
+}
+
+.root.settings-window-root .button.settings-footer-button {
+    -fx-font-size: 14px;
+}
+
+/* --- Таблица инструментов ------------------------------------------------ */
+
+.root .settings-card .table-view,
+.root.settings-window-root.dark-theme .settings-card .table-view {
+    -fx-background-color: ui-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: ui-border;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 1;
+}
+
+.root .settings-card .table-view .column-header-background,
+.root.settings-window-root.dark-theme .settings-card .table-view .column-header-background {
+    -fx-background-color: ui-surface-2;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.root .settings-card .table-view .column-header,
+.root .settings-card .table-view .filler,
+.root.settings-window-root.dark-theme .settings-card .table-view .column-header,
+.root.settings-window-root.dark-theme .settings-card .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent ui-border ui-border transparent;
+    -fx-border-width: 0 1 1 0;
+}
+
+.root .settings-card .table-view .column-header .label,
+.root.settings-window-root.dark-theme .settings-card .table-view .column-header .label {
+    -fx-text-fill: ui-muted;
+    -fx-font-weight: bold;
+}
+
+.root .settings-card .table-row-cell,
+.root.settings-window-root.dark-theme .settings-card .table-row-cell {
+    -fx-background-color: ui-surface;
+    -fx-border-color: transparent transparent ui-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.root .settings-card .table-row-cell:odd,
+.root.settings-window-root.dark-theme .settings-card .table-row-cell:odd {
+    -fx-background-color: ui-row-alt;
+}
+
+.root .settings-card .table-row-cell:hover,
+.root.settings-window-root.dark-theme .settings-card .table-row-cell:hover {
+    -fx-background-color: ui-accent-soft;
+}
+
+.root .settings-card .table-row-cell:selected,
+.root.settings-window-root.dark-theme .settings-card .table-row-cell:selected {
+    -fx-background-color: ui-accent-soft;
+    -fx-border-color: ui-accent;
+    -fx-border-width: 1;
+}
+
+.root .settings-card .table-row-cell .table-cell,
+.root.settings-window-root.dark-theme .settings-card .table-row-cell .table-cell {
+    -fx-text-fill: ui-text;
+    -fx-border-color: transparent;
+}
+
+/* --- Диалоги ------------------------------------------------------------- */
+
+.root.dialog-pane,
+.root.dark-theme.dialog-pane {
+    -fx-background-color: ui-surface;
+    -fx-padding: 0;
+}
+
+.root.dialog-pane > .header-panel,
+.root.dark-theme.dialog-pane > .header-panel {
+    -fx-background-color: ui-surface-2;
+    -fx-padding: 18 24 14 24;
+    -fx-border-color: transparent transparent ui-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.root.dialog-pane > .header-panel .label,
+.root.dark-theme.dialog-pane > .header-panel .label {
+    -fx-text-fill: ui-text;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.root.dialog-pane > .content,
+.root.dark-theme.dialog-pane > .content {
+    -fx-padding: 16 24 10 24;
+}
+
+.root.dialog-pane .label,
+.root.dialog-pane > .content.label,
+.root.dark-theme.dialog-pane .label,
+.root.dark-theme.dialog-pane > .content.label {
+    -fx-text-fill: ui-text;
+    -fx-font-size: 13px;
+}
+
+.root.dialog-pane .dialog-hint,
+.root.dark-theme.dialog-pane .dialog-hint {
+    -fx-text-fill: ui-muted;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 2;
+}
+
+.root.dialog-pane > .button-bar > .container,
+.root.dark-theme.dialog-pane > .button-bar > .container {
+    -fx-padding: 8 24 18 24;
+}
+
+.root.dialog-pane .button,
+.root.dark-theme.dialog-pane .button {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 18 8 18;
+    -fx-min-height: 36;
+}
+
+/* Кнопка по умолчанию — акцентная. */
+.root.dialog-pane .button:default,
+.root.dark-theme.dialog-pane .button:default {
+    -fx-background-color: linear-gradient(to bottom, #3b82f6, #2563eb);
+    -fx-border-color: #1d4ed8;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.35), 8, 0, 0, 2);
+}
+
+.root.dialog-pane .button:default:hover,
+.root.dark-theme.dialog-pane .button:default:hover {
+    -fx-background-color: linear-gradient(to bottom, #5592f8, #2f6df0);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.55), 12, 0, 0, 2);
+}
+
+/* «О программе». */
+.root.dialog-pane.about-dialog > .content,
+.root.dark-theme.dialog-pane.about-dialog > .content {
+    -fx-padding: 26 28 14 28;
+}
+
+.root.dialog-pane .about-name,
+.root.dark-theme.dialog-pane .about-name {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: ui-text;
+}
+
+.root.dialog-pane .about-version,
+.root.dark-theme.dialog-pane .about-version {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: ui-accent-text;
+    -fx-background-color: ui-accent-soft;
+    -fx-background-radius: 999;
+    -fx-padding: 2 9 2 9;
+}
+
+.root.dialog-pane .about-line,
+.root.dark-theme.dialog-pane .about-line {
+    -fx-font-size: 13px;
+    -fx-text-fill: ui-text;
+}
+
+.root.dialog-pane .about-description,
+.root.dark-theme.dialog-pane .about-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: ui-muted;
+}
+
+/* --- Окно МСП ------------------------------------------------------------ */
+
+.root .settings-card .settings-badge.mcp-status-on,
+.root.settings-window-root.dark-theme .settings-card .settings-badge.mcp-status-on {
+    -fx-background-color: rgba(34, 197, 94, 0.14);
+    -fx-border-color: #22c55e;
+    -fx-text-fill: ui-success-text;
+}
+
+.root .text-area.mcp-journal,
+.root.settings-window-root.dark-theme .text-area.mcp-journal {
+    -fx-background-color: ui-field;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-border-color: ui-field-border;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: null;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 12.5px;
+    -fx-text-fill: ui-text;
+}
+
+.root .text-area.mcp-journal .content,
+.root.settings-window-root.dark-theme .text-area.mcp-journal .content {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-padding: 8 10 8 10;
+}
+
+.root .text-area.mcp-journal .scroll-pane,
+.root.settings-window-root.dark-theme .text-area.mcp-journal .scroll-pane,
+.root .text-area.mcp-journal .scroll-pane > .viewport,
+.root.settings-window-root.dark-theme .text-area.mcp-journal .scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* --- Значки и подписи, которые раньше красились в коде -------------------- */
+
+/* Лупа поиска: цвет текста темы (в тёмной теме была чёрной на тёмной кнопке). */
+.root .find-icon,
+.root .dark-theme .find-icon {
+    -fx-fill: ui-text;
+}
+
+/* Номер позиции рядом со значком резца: у выбранной строки брал цвет выделения
+   Modena и становился чёрным в тёмной теме. */
+.root .table-row-cell .tool-position-number,
+.root .table-row-cell:selected .tool-position-number,
+.root .dark-theme .table-row-cell .tool-position-number,
+.root .dark-theme .table-row-cell:selected .tool-position-number,
+.root.dark-theme .table-row-cell .tool-position-number,
+.root.dark-theme .table-row-cell:selected .tool-position-number {
+    -fx-text-fill: ui-text;
+    -fx-font-weight: bold;
+}
+
+/* --- Верхняя строка: меню и масштаб -------------------------------------- */
+
+/* Одна полоса по теме. Раньше строка меню была тёмной в обеих темах, а блок
+   масштаба рядом — цвета фона: в светлой теме выходила тёмная полоса с
+   светлым пятном справа. */
+.root .menu-row,
+.root .dark-theme .menu-row {
+    -fx-background-color: ui-surface;
+    -fx-border-color: transparent transparent ui-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.root .menu-row .menu-bar,
+.root .dark-theme .menu-row .menu-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 3 8 3 8;
+}
+
+.root .menu-row .menu-bar .menu > .label,
+.root .dark-theme .menu-row .menu-bar .menu > .label {
+    -fx-text-fill: ui-text;
+}
+
+.root .menu-row .menu-bar .menu:hover,
+.root .menu-row .menu-bar .menu:showing,
+.root .dark-theme .menu-row .menu-bar .menu:hover,
+.root .dark-theme .menu-row .menu-bar .menu:showing {
+    -fx-background-color: ui-accent-soft;
+    -fx-background-radius: 6;
+}
+
+/* Масштаб: капсула с кнопками, как в браузере. */
+.root .menu-row .ui-scale-box,
+.root .dark-theme .menu-row .ui-scale-box {
+    -fx-background-color: ui-surface-2;
+    -fx-background-radius: 999;
+    -fx-border-color: ui-border;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-padding: 1 6 1 6;
+}
+
+.root .menu-row .button.ui-scale-button,
+.root .dark-theme .menu-row .button.ui-scale-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: ui-text;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-min-width: 28px;
+    -fx-pref-height: 24px;
+    -fx-padding: 0 6 0 6;
+    -fx-background-radius: 999;
+}
+
+.root .menu-row .button.ui-scale-button:hover,
+.root .dark-theme .menu-row .button.ui-scale-button:hover {
+    -fx-background-color: ui-accent-soft;
+    -fx-text-fill: ui-accent-text;
+}
+
+.root .menu-row .button.ui-scale-button:pressed,
+.root .dark-theme .menu-row .button.ui-scale-button:pressed {
+    -fx-background-color: ui-accent;
+    -fx-text-fill: #ffffff;
+}
+
+.root .menu-row .ui-scale-label,
+.root .dark-theme .menu-row .ui-scale-label {
+    -fx-text-fill: ui-text;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-min-width: 50px;
+    -fx-alignment: center;
+}
+
+/* Плитки позиций резца (окно выбора позиции и таблица): номер всегда цвета
+   текста темы — при наведении и нажатии он становился чёрным на тёмном. */
+.root .tool-position-button .tool-position-number,
+.root .tool-position-button:hover .tool-position-number,
+.root .tool-position-button:pressed .tool-position-number,
+.root .tool-position-button:focused .tool-position-number,
+.root .tool-position-button.simulation3d-mode-active .tool-position-number,
+.root .dark-theme .tool-position-button .tool-position-number,
+.root .dark-theme .tool-position-button:hover .tool-position-number,
+.root .dark-theme .tool-position-button:pressed .tool-position-number,
+.root .dark-theme .tool-position-button:focused .tool-position-number,
+.root .dark-theme .tool-position-button.simulation3d-mode-active .tool-position-number,
+.root.dark-theme .tool-position-button .tool-position-number,
+.root.dark-theme .tool-position-button:hover .tool-position-number,
+.root.dark-theme .tool-position-button:pressed .tool-position-number,
+.root.dark-theme .tool-position-button:focused .tool-position-number,
+.root.dark-theme .tool-position-button.simulation3d-mode-active .tool-position-number,
+.root .dialog-pane .tool-position-button .tool-position-number,
+.root.dialog-pane .tool-position-button:hover .tool-position-number,
+.root.dark-theme.dialog-pane .tool-position-button .tool-position-number,
+.root.dark-theme.dialog-pane .tool-position-button:hover .tool-position-number,
+.root.dark-theme.dialog-pane .tool-position-button:pressed .tool-position-number,
+.root.dark-theme.dialog-pane .tool-position-button.simulation3d-mode-active .tool-position-number {
+    -fx-text-fill: ui-text;
+}
+
+.root .button.tool-position-button,
+.root .dark-theme .button.tool-position-button,
+.root.dark-theme .button.tool-position-button {
+    -fx-background-color: ui-surface-2;
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-border-color: ui-border;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: null;
+}
+
+.root .button.tool-position-button:hover,
+.root .dark-theme .button.tool-position-button:hover,
+.root.dark-theme .button.tool-position-button:hover {
+    -fx-background-color: ui-accent-soft;
+    -fx-border-color: ui-accent;
+}
+
+.root .button.tool-position-button.simulation3d-mode-active,
+.root .dark-theme .button.tool-position-button.simulation3d-mode-active,
+.root.dark-theme .button.tool-position-button.simulation3d-mode-active {
+    -fx-background-color: ui-accent;
+    -fx-border-color: ui-accent;
+}
+
+.root .button.tool-position-button.simulation3d-mode-active .tool-position-number,
+.root .dark-theme .button.tool-position-button.simulation3d-mode-active .tool-position-number,
+.root.dark-theme .button.tool-position-button.simulation3d-mode-active .tool-position-number {
+    -fx-text-fill: #ffffff;
+}

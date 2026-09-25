@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Готовая программа хранится байт в байт: контрольные суммы в release-files.json
+launch/Intraspect-Windows-x64/** -text

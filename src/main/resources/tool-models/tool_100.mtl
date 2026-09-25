@@ -1,0 +1,12 @@
+# Blender 5.1.0 MTL File: 'tripo_normalized_tool_models.blend'
+# www.blender.org
+
+newmtl tripo_mat_a54dce32
+Kd 1.000000 1.000000 1.000000
+map_Kd textures/tool_100_basecolor.jpg
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2

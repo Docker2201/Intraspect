@@ -1,0 +1,63 @@
+;( SAMPLE-SHAFT )
+;( Synthetic test program. Generic stepped shaft, no production data.      )
+;( Symmetric blank: both ends stay uncut, the middle is turned down.       )
+;( The same program is published as samples/sample-shaft.nc for people to   )
+;( open. Change one and change the other, or the regressions drift.         )
+N5 WORKPIECE(,,,"CYLINDER",100,600,-600,-600,120)
+N10 M8
+N15 G0 G90 G500 X200 Z60 D0
+N20 G90 G95 G40 DIAMON
+N25 LIMS=1500
+N30 R10=110
+N35 R11=96
+N40 R12=90
+;( --- roughing, first end --- )
+N45 T1 D1 G54
+N50 G96 S220 M3
+N55 G0 X130 Z120
+N60 G1 X=R10 F1.5
+N65 G1 Z-300 F.6
+N70 G1 X126 F2
+N75 G0 Z120
+N80 G1 X=R11 F1.5
+N85 G1 Z-200 F.5
+N90 G1 X126 F2
+N95 G0 Z120
+N100 G1 X=R12 F1.5
+N105 G1 Z-100 F.5
+N110 G1 X126 F2
+N115 G0 X200 Z120 M9
+;( --- roughing, second end --- )
+N120 T2 D1 G54
+N125 G96 S220 M3
+N130 G0 X130 Z-480 M8
+N135 G1 X=R10 F1.5
+N140 G1 Z-320 F.6
+N145 G1 X126 F2
+N150 G0 Z-480
+N155 G1 X=R11 F1.5
+N160 G1 Z-360 F.5
+N165 G1 X126 F2
+N170 G0 X200 Z-480 M9
+;( --- finishing pass with nose-radius compensation --- )
+N175 T3 D1 G54
+N180 G96 S280 M3
+N185 G0 X84 Z120 M8
+N190 G41 G1 Z100 F.4
+N195 G1 X90 Z90 F.4
+N200 G1 Z-60 F.4
+N205 G3 X100 Z-70 CR=5 F.3
+N210 G1 X100 Z-160 F.4
+N215 G2 X110 Z-170 CR=5 F.3
+N220 G1 X110 Z-280 F.4
+N225 G1 X120 Z-300 F.5
+N230 G40 G1 X130 F2
+N235 G0 X200 Z-480
+N240 G42 G1 X110 Z-460 F.4
+N245 G1 Z-340 F.4
+N250 G1 X100 Z-330 F.4
+N255 G1 X90 Z-320 F.4
+N260 G40 G1 X130 F2
+N265 G0 G500 X200 Z60 D0 M9
+N270 M5
+N275 M30

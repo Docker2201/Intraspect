@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="400.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sergey.pisarev.controller.PrintDialogController">
+   <children>
+      <Label text="Print Options" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      
+      <TitledPane text="Printer Settings" expanded="true">
+         <content>
+            <VBox spacing="5.0">
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Printer:" prefWidth="80.0" />
+                  <ComboBox fx:id="printerComboBox" prefWidth="200.0" />
+               </HBox>
+               
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Quality:" prefWidth="80.0" />
+                  <ComboBox fx:id="qualityComboBox" prefWidth="200.0" />
+               </HBox>
+            </VBox>
+         </content>
+      </TitledPane>
+      
+      <TitledPane text="Page Settings" expanded="true">
+         <content>
+            <VBox spacing="5.0">
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Paper Size:" prefWidth="80.0" />
+                  <ComboBox fx:id="paperSizeComboBox" prefWidth="200.0" />
+               </HBox>
+               
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Orientation:" prefWidth="80.0" />
+                  <RadioButton fx:id="portraitRadioButton" text="Portrait" selected="true" />
+                  <RadioButton fx:id="landscapeRadioButton" text="Landscape" />
+                  <ToggleGroup fx:id="orientationGroup" />
+               </HBox>
+               
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Margins (mm):" prefWidth="80.0" />
+                  <Spinner fx:id="marginSpinner" prefWidth="80.0" editable="true" />
+               </HBox>
+            </VBox>
+         </content>
+      </TitledPane>
+      
+      <TitledPane text="Print Options" expanded="true">
+         <content>
+            <VBox spacing="5.0">
+               <CheckBox fx:id="fitToPageCheckBox" text="Fit to page" selected="true" />
+               <CheckBox fx:id="showPrintDialogCheckBox" text="Show print dialog" selected="true" />
+               
+               <HBox spacing="10.0" alignment="CENTER_LEFT">
+                  <Label text="Job Name:" prefWidth="80.0" />
+                  <TextField fx:id="jobNameTextField" prefWidth="200.0" text="CNC Model Print" />
+               </HBox>
+            </VBox>
+         </content>
+      </TitledPane>
+      
+      <TitledPane text="Preview" expanded="false">
+         <content>
+            <VBox spacing="5.0">
+               <Label text="Canvas dimensions:" />
+               <Label fx:id="canvasDimensionsLabel" text="800 x 600 pixels" />
+               <Label text="Page dimensions:" />
+               <Label fx:id="pageDimensionsLabel" text="A4: 210 x 297 mm" />
+               <Label text="Scale factor:" />
+               <Label fx:id="scaleFactorLabel" text="1.0" />
+            </VBox>
+         </content>
+      </TitledPane>
+      
+      <Region VBox.vgrow="ALWAYS" />
+      
+      <HBox spacing="10.0" alignment="CENTER_RIGHT">
+         <Button fx:id="printButton" text="Print" defaultButton="true" onAction="#handlePrint" />
+         <Button fx:id="cancelButton" text="Cancel" cancelButton="true" onAction="#handleCancel" />
+      </HBox>
+   </children>
+   
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

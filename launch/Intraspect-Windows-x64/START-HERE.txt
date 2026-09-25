@@ -1,0 +1,10 @@
+﻿Intraspect
+
+1. Extract the entire ZIP. / Распакуйте ZIP целиком.
+2. Open Intraspect.exe. / Откройте Intraspect.exe.
+3. File > Open > samples/first-part.nc. / Файл > Открыть > samples/first-part.nc.
+
+No separate Java or library installation. / Java и библиотеки уже внутри.
+Keep the whole folder together. / Переносите всю папку, не один EXE.
+Guide: https://github.com/Docker2201/Intraspect#readme
+MCP: https://github.com/Docker2201/Intraspect/blob/main/docs/mcp.md

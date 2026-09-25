@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane fx:id="rootPane" prefHeight="640.0" prefWidth="960.0" styleClass="simulation3d-root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sergey.pisarev.controller.Simulation3dController">
+   <top>
+      <HBox fx:id="toolbar" alignment="CENTER_LEFT" spacing="8.0" styleClass="simulation3d-toolbar">
+         <padding>
+            <Insets bottom="8.0" left="12.0" right="12.0" top="8.0" />
+         </padding>
+         <children>
+            <HBox fx:id="toolbarLeft" alignment="CENTER_LEFT" spacing="6.0" styleClass="simulation3d-toolbar-group">
+               <children>
+                  <Button fx:id="view3dButton" mnemonicParsing="false" onAction="#onView3d" styleClass="secondary-button simulation3d-toolbar-button simulation3d-mode-active" text="3D" />
+                  <Button fx:id="cycleButton" mnemonicParsing="false" onAction="#onViewCycle" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.cycle" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshModel" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.refresh" />
+                  <Button fx:id="halfCutButton" mnemonicParsing="false" onAction="#onViewHalfCut" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.halfcut" />
+                  <Button fx:id="sideViewButton" mnemonicParsing="false" onAction="#onViewSideGraph" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.sideview" />
+                  <Button fx:id="toolpathButton" mnemonicParsing="false" onAction="#onToggleToolpath" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.toolpath" />
+                  <Button fx:id="measureButton" mnemonicParsing="false" onAction="#onToggleMeasureTool" styleClass="secondary-button simulation3d-toolbar-button simulation3d-measure-button" />
+                  <Button mnemonicParsing="false" onAction="#onZoomIn" styleClass="secondary-button simulation3d-toolbar-button" text="+" />
+                  <Button mnemonicParsing="false" onAction="#onZoomOut" styleClass="secondary-button simulation3d-toolbar-button" text="−" />
+                  <Button mnemonicParsing="false" onAction="#onResetView" styleClass="secondary-button simulation3d-toolbar-button" text="%sim3d.btn.reset" />
+               </children>
+            </HBox>
+            <Label fx:id="statusLabel" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="0.0" styleClass="simulation3d-status" text="%sim3d.status" wrapText="false" textOverrun="CLIP" HBox.hgrow="ALWAYS" />
+            <HBox fx:id="toolbarRight" alignment="CENTER_RIGHT" spacing="6.0" styleClass="simulation3d-toolbar-group">
+               <children>
+                  <Label fx:id="coordLabel" styleClass="simulation3d-coords" text="X —  Z —" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <StackPane fx:id="viewportStack" styleClass="simulation3d-viewport" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="errorLabel" styleClass="simulation3d-error" text="" visible="false" managed="false" wrapText="true" maxWidth="520.0" />
+            <StackPane fx:id="loadingOverlay" styleClass="simulation3d-loading" visible="false" managed="false" maxWidth="Infinity" maxHeight="Infinity" prefWidth="-1" prefHeight="-1" StackPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" spacing="18.0" styleClass="simulation3d-loading-box" maxWidth="320.0" maxHeight="200.0" StackPane.alignment="CENTER">
+                     <children>
+                        <Region fx:id="loadingSpinner" styleClass="simulation3d-loading-spinner" prefWidth="64.0" prefHeight="64.0" minWidth="64.0" minHeight="64.0" />
+                        <Label fx:id="loadingLabel" styleClass="simulation3d-loading-title" text="%sim3d.loading.title" />
+                        <Label fx:id="loadingHint" styleClass="simulation3d-loading-hint" text="%sim3d.loading.hint" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

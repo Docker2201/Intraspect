@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16.0" styleClass="settings-root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+   </padding>
+   <children>
+
+      <GridPane fx:id="settingsCardsGrid" hgap="16.0" vgap="16.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+         </columnConstraints>
+         <children>
+
+            <!-- Карточка 1: станок и система ЧПУ -->
+            <VBox maxWidth="1.7976931348623157E308" spacing="12.0" styleClass="settings-card" GridPane.columnIndex="0" GridPane.valignment="TOP">
+               <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="settings-card-title" text="%settings.card.machine" />
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="settings-field-label" text="%settings.field.cnc" />
+                        <ComboBox fx:id="controlSystemComboBox" maxWidth="1.7976931348623157E308" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="settings-field-label" text="%settings.field.machine" />
+                        <ComboBox fx:id="machineTypeComboBox" maxWidth="1.7976931348623157E308" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="6.0">
+                     <children>
+                        <Label styleClass="settings-field-label" text="%settings.field.axes" />
+                        <HBox spacing="6.0" styleClass="machine-axes-row">
+                           <children>
+                              <Label fx:id="axisLabelX" styleClass="machine-axis-label machine-axis-active" text="X" />
+                              <Label fx:id="axisLabelY" styleClass="machine-axis-label" text="Y" />
+                              <Label fx:id="axisLabelZ" styleClass="machine-axis-label machine-axis-active" text="Z" />
+                              <Label fx:id="axisLabelA" styleClass="machine-axis-label" text="A" />
+                              <Label fx:id="axisLabelB" styleClass="machine-axis-label" text="B" />
+                              <Label fx:id="axisLabelC" styleClass="machine-axis-label" text="C" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <!-- Карточка 2: заготовка и чашка -->
+            <VBox maxWidth="1.7976931348623157E308" spacing="12.0" styleClass="settings-card" GridPane.columnIndex="1" GridPane.valignment="TOP">
+               <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="settings-card-title" text="%settings.card.blank" />
+                  <VBox spacing="6.0">
+                     <children>
+                        <Label styleClass="settings-sub-title" text="%settings.sub.turning" />
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="settings-field-label" text="%settings.field.blankdia" HBox.hgrow="ALWAYS" />
+                              <CheckBox fx:id="checkBoxUseBlankDiameter" mnemonicParsing="false" text="%settings.check.consider" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="turningBlankDiameter" promptText="%settings.hint.eg50" />
+                     </children>
+                  </VBox>
+                  <Separator />
+                  <VBox spacing="6.0">
+                     <children>
+                        <Label styleClass="settings-sub-title" text="%settings.sub.cup" />
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="settings-field-label" text="%settings.field.cupradius" HBox.hgrow="ALWAYS" />
+                              <CheckBox fx:id="checkBoxUseCupRadius" mnemonicParsing="false" text="%settings.check.consider" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="cupRadius" promptText="%settings.hint.eg20" />
+                        <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="settings-result-row">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" styleClass="settings-field-label" text="%settings.field.cupdia" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="labelCupOuterDiameter" styleClass="result-label" text="—" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator />
+                  <!-- Коррекция на радиус вершины резца: то, что наладчик Siemens вводит
+                       в данные инструмента (радиус) и в кадр (G41/G42, OFFN). -->
+                  <VBox spacing="6.0">
+                     <children>
+                        <Label styleClass="settings-sub-title" text="%settings.sub.equidistant" />
+                        <CheckBox fx:id="checkBoxEquidistant" mnemonicParsing="false" text="%settings.check.equidistant" />
+                        <Label styleClass="settings-field-label" text="%settings.field.noseradiussource" />
+                        <ComboBox fx:id="equidistantRadiusSourceComboBox" maxWidth="1.7976931348623157E308" />
+                        <Label styleClass="settings-field-label" text="%settings.field.noseradius" />
+                        <TextField fx:id="equidistantRadius" promptText="%settings.hint.eg04" />
+                        <Label styleClass="settings-field-label" text="%settings.field.allowance" />
+                        <TextField fx:id="equidistantAllowance" promptText="%settings.hint.eg02" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <!-- Карточка 3: смещения нулевой точки -->
+            <VBox maxWidth="1.7976931348623157E308" spacing="12.0" styleClass="settings-card" GridPane.columnIndex="2" GridPane.valignment="TOP">
+               <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="settings-card-title" text="%settings.card.offsets" />
+                  <Label fx:id="activeWorkOffsetLabel" maxWidth="1.7976931348623157E308" styleClass="settings-badge" text="%settings.badge.fromprogram" wrapText="true" />
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label styleClass="settings-field-label" text="%settings.field.offsetcount" />
+                        <TextField fx:id="workOffsetCountField" promptText="%settings.hint.eg3" />
+                     </children>
+                  </VBox>
+                  <!-- Список смещений прокручивается внутри карточки: сколько бы точек
+                       ни задали, карточка не растёт и не тянет за собой соседние блоки. -->
+                  <ScrollPane fx:id="workOffsetsScroll" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" minHeight="120.0" prefHeight="190.0" styleClass="settings-offsets-scroll" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="workOffsetsBox" spacing="6.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+
+            <!-- Карточка 4: подача и шпиндель -->
+            <VBox maxWidth="1.7976931348623157E308" spacing="12.0" styleClass="settings-card" GridPane.columnIndex="3" GridPane.valignment="TOP">
+               <children>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="settings-card-title" text="%settings.card.feed" />
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="settings-field-label" text="%settings.field.override" />
+                  <HBox fx:id="overrideDialsRow" alignment="CENTER" spacing="18.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+
+         </children>
+      </GridPane>
+
+      <!-- Где реально лежат данные. Раньше уход в профиль ПК был виден только в логе. -->
+      <Label fx:id="dataFolderLabel" maxWidth="1.7976931348623157E308" styleClass="muted-label" wrapText="true" />
+
+      <!-- Карточка на всю ширину: инструменты -->
+      <VBox maxWidth="1.7976931348623157E308" spacing="10.0" styleClass="settings-card" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <Label styleClass="settings-card-title" text="%settings.card.tools" />
+                  <Label maxWidth="1.7976931348623157E308" styleClass="muted-label" text="%settings.tools.hint" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="addToolButton" mnemonicParsing="false" styleClass="secondary-button" text="%settings.tools.add" />
+                  <Button fx:id="pickToolTypeButton" mnemonicParsing="false" styleClass="secondary-button" text="%settings.tools.edit" />
+                  <Button fx:id="removeToolButton" mnemonicParsing="false" styleClass="secondary-button" text="%settings.tools.remove" />
+               </children>
+            </HBox>
+            <VBox fx:id="toolsTableHost" minHeight="260.0" prefHeight="300.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+
+   </children>
+</VBox>

@@ -1,0 +1,20 @@
+newmtl carbide_gold
+Kd 0.860000 0.620000 0.160000
+Ks 0.22 0.22 0.22
+Ns 48
+d 1
+illum 2
+
+newmtl screw_steel
+Kd 0.820000 0.840000 0.820000
+Ks 0.22 0.22 0.22
+Ns 48
+d 1
+illum 2
+
+newmtl black_pocket
+Kd 0.015000 0.018000 0.022000
+Ks 0.22 0.22 0.22
+Ns 48
+d 1
+illum 2

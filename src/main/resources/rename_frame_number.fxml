@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="250.0" maxWidth="328.0" minHeight="250.0" minWidth="328.0" prefHeight="250.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sergey.pisarev.controller.RenameFrameNumbersController">
+   <children>
+      <Text layoutX="46.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firste number">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="46.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textFieldFirstNumber" layoutX="167.0" layoutY="53.0" prefHeight="25.0" prefWidth="111.0" />
+      <TextField fx:id="textFieldStep" layoutX="167.0" layoutY="113.0" prefHeight="25.0" prefWidth="111.0" />
+      <Button defaultButton="true" layoutX="203.0" layoutY="180.0" mnemonicParsing="false" onAction="#buttonOnClickOk" prefWidth="75.0" text="Ok" />
+      <Button layoutX="46.0" layoutY="180.0" mnemonicParsing="false" onAction="#buttonOnClickCancel" prefWidth="75.0" text="Cancel" />
+   </children>
+</AnchorPane>

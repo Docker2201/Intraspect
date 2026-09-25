@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sergey.pisarev.controller.MainController">
+  <children>
+    <!-- Строка меню и масштаб окна: кнопки справа, как в браузере. -->
+    <HBox alignment="CENTER_LEFT" styleClass="menu-row" VBox.vgrow="NEVER">
+      <children>
+    <MenuBar HBox.hgrow="ALWAYS">
+      <menus>
+        <Menu mnemonicParsing="false" text="%menu.file">
+          <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menuOpenProgram" text="%menu.file.open">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <!-- Двухканальная программа лежит пятью файлами: параметры и 2 канала по 2 стороны. -->
+                  <MenuItem mnemonicParsing="false" onAction="#menuOpenProgramSet" text="%menu.file.openset" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuSaveProgram" text="%menu.file.save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#menuConvertAviaProgram" text="%menu.file.normalize" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuRenameFrameNumbers" text="%menu.file.renumber">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#menuPrint" text="%menu.file.print">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#menuClearProgram" text="%menu.file.clear" />
+            <MenuItem mnemonicParsing="false" onAction="#menuQuit" text="%menu.file.quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.theme">
+          <items>
+            <RadioMenuItem fx:id="menuThemeLight" mnemonicParsing="false" onAction="#menuThemeLight" text="%menu.theme.light">
+              <toggleGroup>
+                <ToggleGroup fx:id="themeToggleGroup" />
+              </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem fx:id="menuThemeDark" mnemonicParsing="false" onAction="#menuThemeDark" text="%menu.theme.dark" toggleGroup="$themeToggleGroup" />
+          </items>
+        </Menu>
+        <!-- Язык интерфейса. Названия языков не переводятся: их узнают на любом языке. -->
+        <Menu fx:id="menuLanguage" mnemonicParsing="false" text="%menu.language">
+          <items>
+            <RadioMenuItem fx:id="menuLanguageAuto" mnemonicParsing="false" onAction="#menuLanguageAuto" text="%language.auto">
+              <toggleGroup>
+                <ToggleGroup fx:id="languageToggleGroup" />
+              </toggleGroup>
+            </RadioMenuItem>
+            <SeparatorMenuItem />
+            <RadioMenuItem fx:id="menuLanguageRu" mnemonicParsing="false" onAction="#menuLanguageRu" text="Русский" toggleGroup="$languageToggleGroup" />
+            <RadioMenuItem fx:id="menuLanguageEn" mnemonicParsing="false" onAction="#menuLanguageEn" text="English" toggleGroup="$languageToggleGroup" />
+            <RadioMenuItem fx:id="menuLanguageUk" mnemonicParsing="false" onAction="#menuLanguageUk" text="Українська" toggleGroup="$languageToggleGroup" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.axes">
+          <items>
+            <RadioMenuItem mnemonicParsing="false" onAction="#menuAxisStandard" selected="true" text="%axes.standard">
+              <toggleGroup>
+                <ToggleGroup fx:id="axisToggleGroup" />
+              </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem mnemonicParsing="false" onAction="#menuAxisXZ" text="%axes.xz" toggleGroup="$axisToggleGroup" />
+            <RadioMenuItem mnemonicParsing="false" onAction="#menuAxisXY" text="%axes.xy" toggleGroup="$axisToggleGroup" />
+          </items>
+        </Menu>
+        <!-- Размеры, по именам которых ходит обрабатывающая программа. -->
+        <Menu mnemonicParsing="false" text="%menu.parameters">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#menuOpenParameterProgram" text="%menu.parameters.edit" />
+          </items>
+        </Menu>
+        <!-- Подключение нейросети к программе. -->
+        <Menu fx:id="menuMcp" mnemonicParsing="false" text="%menu.mcp">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#menuMcpConsole" text="%menu.mcp.open" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="%menu.help">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#menuAbout" text="%menu.help.about" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+        <HBox alignment="CENTER" spacing="4.0" styleClass="ui-scale-box">
+          <children>
+            <Button fx:id="buttonUiScaleOut" focusTraversable="false" mnemonicParsing="false" onAction="#onUiScaleOut" styleClass="ui-scale-button" text="−" />
+            <Label fx:id="uiScaleLabel" styleClass="ui-scale-label" text="100 %" />
+            <Button fx:id="buttonUiScaleIn" focusTraversable="false" mnemonicParsing="false" onAction="#onUiScaleIn" styleClass="ui-scale-button" text="+" />
+            <Button fx:id="buttonUiScaleReset" focusTraversable="false" mnemonicParsing="false" onAction="#onUiScaleReset" styleClass="ui-scale-button" text="⟲" />
+          </children>
+          <padding><Insets left="8.0" right="10.0" /></padding>
+        </HBox>
+      </children>
+    </HBox>
+    <SplitPane fx:id="splitPane" dividerPositions="0.34" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+      <AnchorPane fx:id="sidebarPane" id="Content" minHeight="-1.0" minWidth="0.0" prefHeight="551.0" prefWidth="280.0" styleClass="sidebar">
+        <children>
+          <VBox spacing="0.0" styleClass="program-section" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox styleClass="program-text-header">
+               <children>
+                  <Region minWidth="16.0" prefWidth="16.0" maxWidth="16.0" />
+                  <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label fx:id="labelProgramTitle" styleClass="section-title program-section-heading" text="%panel.program" />
+                              <!-- Плашка проблем программы: код + текст, красная или жёлтая. -->
+                              <Label fx:id="programDiagnosticBadge" managed="false" styleClass="diagnostic-badge" visible="false" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="labelProgramHint" maxWidth="1.7976931348623157E308" styleClass="muted-label program-section-heading" text="%panel.drophint" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <!-- Сторона детали: обе головки переходят вместе. -->
+                  <Button fx:id="sideToggleButton" managed="false" mnemonicParsing="false" onAction="#menuToggleSide" styleClass="channel-toggle-button" text="%panel.side" visible="false">
+                     <HBox.margin>
+                        <Insets right="8.0" top="6.0" />
+                     </HBox.margin>
+                  </Button>
+                  <!-- Развёртывание второго блока кода: слева канал 2, справа канал 1. -->
+                  <Button fx:id="rightPaneToggleButton" mnemonicParsing="false" onAction="#menuToggleRightPane" styleClass="channel-toggle-button" text="%panel.channel.expand">
+                     <HBox.margin>
+                        <Insets right="12.0" top="6.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox spacing="0.0" styleClass="program-editor-stack" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox fx:id="programEditorBox" maxHeight="1.7976931348623157E308" minHeight="120.0" onDragDropped="#handleDragProgram" onDragOver="#handleDragOverProgram" prefHeight="400.0" spacing="0.0" VBox.vgrow="ALWAYS" />
+                  <HBox alignment="CENTER" minHeight="96.0" styleClass="program-toolbar-wrap" VBox.vgrow="NEVER">
+               <children>
+                  <!-- FlowPane, а не HBox: при узкой панели (например, из-за масштаба Windows 150%,
+                       когда логических пикселей меньше) кнопки переносятся на вторую строку,
+                       а не ужимаются так, что подписи схлопываются в «...». -->
+                  <FlowPane fx:id="programToolbarFlow" alignment="CENTER" hgap="8.0" vgap="6.0" maxWidth="1.7976931348623157E308" styleClass="program-toolbar" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="buttonFrameUp" mnemonicParsing="false" onAction="#onFrameUp" prefHeight="34.0" prefWidth="48.0" styleClass="secondary-button program-toolbar-button" text="▲" />
+                        <Button fx:id="buttonFrameDown" mnemonicParsing="false" onAction="#onFrameDown" prefHeight="34.0" prefWidth="48.0" styleClass="secondary-button program-toolbar-button" text="▼" />
+                        <TextField fx:id="programSearchField" onAction="#onProgramSearch" prefHeight="34.0" promptText="%toolbar.search.prompt" prefWidth="130.0" styleClass="program-toolbar-field" />
+                        <Button fx:id="buttonProgramFind" mnemonicParsing="false" onAction="#onProgramSearch" prefHeight="34.0" prefWidth="48.0" styleClass="secondary-button program-toolbar-button" />
+                        <Button fx:id="buttonProgramReplace" mnemonicParsing="false" onAction="#onProgramReplace" prefHeight="34.0" prefWidth="120.0" styleClass="secondary-button program-toolbar-button" text="%toolbar.replace" />
+                        <Label styleClass="program-toolbar-label" text="%toolbar.font" />
+                        <ComboBox fx:id="programFontSizeComboBox" prefHeight="34.0" prefWidth="72.0" styleClass="program-toolbar-combo" />
+                        <Button fx:id="buttonProgramHistory" mnemonicParsing="false" onAction="#onProgramEditHistory" prefHeight="34.0" prefWidth="168.0" styleClass="secondary-button program-toolbar-button" text="%toolbar.history" />
+                     </children>
+                  </FlowPane>
+               </children>
+                  </HBox>
+               </children>
+            </VBox>
+          </VBox>
+        </children>
+      </AnchorPane>
+        <!-- minWidth 0: даёт утащить разделитель до самого правого края экрана. -->
+        <AnchorPane minWidth="0.0">
+          <children>
+                  <SplitPane dividerPositions="0.7431693989071039" orientation="VERTICAL" prefHeight="551.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane fx:id="anchorPaneCanvas" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="canvas-host">
+                           <cursor>
+                              <Cursor fx:constant="CROSSHAIR" />
+                           </cursor>
+                           <children>
+                              <StackPane fx:id="paneCanvas" layoutX="295.0" layoutY="122.0" prefHeight="150.0" prefWidth="200.0" styleClass="canvas-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                           <Text fx:id="textCoordinateX" layoutX="666.0" layoutY="379.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X" wrappingWidth="70.0" AnchorPane.bottomAnchor="92.98828125" AnchorPane.rightAnchor="17.0" />
+                                           <Text fx:id="textCoordinateZ" layoutX="666.0" layoutY="420.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Z " wrappingWidth="70.0" AnchorPane.bottomAnchor="51.0" AnchorPane.rightAnchor="17.0" />
+                                           <Text fx:id="textZooming" layoutX="656.0" layoutY="456.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100%" AnchorPane.bottomAnchor="15.2353515625" AnchorPane.rightAnchor="50.466796875" />
+                                           <Text fx:id="textFrame" layoutX="656.0" layoutY="400.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="240.0" AnchorPane.bottomAnchor="15.2" AnchorPane.leftAnchor="20.0">
+                                           <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="textFrameCoordinateX" layoutX="20.0" layoutY="377.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="80.0" AnchorPane.bottomAnchor="93.58828125000002" AnchorPane.leftAnchor="20.0" />
+                                          <Text fx:id="textFrameCoordinateZ" layoutX="20.0" layoutY="418.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="80.0" AnchorPane.bottomAnchor="51.60000000000002" AnchorPane.leftAnchor="20.0" />
+                                          <Button fx:id="buttonExpandGraph" mnemonicParsing="false" onAction="#onExpandGraph" prefHeight="28.0" prefWidth="34.0" styleClass="secondary-button" text="⛶" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children></StackPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="statusPanelPane" maxHeight="96.0" minHeight="96.0" minWidth="0.0" prefHeight="96.0" prefWidth="743.0" styleClass="status-panel">
+                           <children>
+                              <Button fx:id="buttonCycleStart" disable="true" layoutX="86.0" layoutY="11.0" mnemonicParsing="false" onAction="#onCycleStart" prefHeight="34.0" prefWidth="80.0" styleClass="primary-button" text="%status.cycle" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="8.0" />
+                              <Button fx:id="buttonReset" cancelButton="true" disable="true" layoutX="6.0" layoutY="47.0" mnemonicParsing="false" onAction="#onReset" prefHeight="34.0" prefWidth="80.0" styleClass="danger-button" text="%status.reset" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="54.0" />
+                              <Button fx:id="buttonStart" defaultButton="true" layoutX="6.0" layoutY="11.0" mnemonicParsing="false" onAction="#onStart" prefHeight="34.0" prefWidth="80.0" styleClass="primary-button" text="%status.start" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="8.0" />
+                              <Button fx:id="buttonSingleBlock" disable="true" layoutX="86.0" layoutY="47.0" mnemonicParsing="false" onAction="#onSingleBlock" prefHeight="34.0" prefWidth="80.0" styleClass="secondary-button status-panel-text" text="%status.frame" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="54.0" />
+                              <CheckBox fx:id="checkBoxToolRadius" layoutX="180.0" layoutY="10.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="168.0" styleClass="status-panel-text" text="%status.radius" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="8.0" />
+                              <Button fx:id="buttonFitView" layoutX="180.0" layoutY="47.0" mnemonicParsing="false" onAction="#onFitView" prefHeight="34.0" prefWidth="132.0" styleClass="secondary-button status-center-button" text="%status.fit" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="54.0" />
+                              <Label fx:id="labelExecutionStatus" layoutX="350.0" layoutY="16.0" maxWidth="1.7976931348623157E308" prefHeight="18.0" styleClass="progress-status-label" text="%status.ready" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="14.0" />
+                              <HBox fx:id="statusProgressRow" alignment="CENTER_LEFT" spacing="8.0" styleClass="status-progress-row" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="42.0">
+                                 <children>
+                                    <ProgressBar fx:id="progressExecution" maxWidth="1.7976931348623157E308" prefHeight="18.0" progress="0.0" HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="labelExecutionProgress" styleClass="progress-percent-label" text="0%" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="statusSpeedRow" alignment="CENTER_LEFT" spacing="10.0" styleClass="status-speed-row" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="4.0">
+                                 <children>
+                                    <VBox fx:id="cycleSpeedBlock" maxWidth="218.0" minWidth="218.0" prefWidth="218.0" spacing="4.0" styleClass="cycle-speed-block">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                             <children>
+                                                <Label styleClass="cycle-speed-title" text="%status.cyclespeed" />
+                                                <Region HBox.hgrow="ALWAYS" maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="1.0" prefWidth="0.0" />
+                                                <Button fx:id="buttonCyclePause" mnemonicParsing="false" onAction="#onCyclePause" prefHeight="26.0" prefWidth="40.0" styleClass="cycle-speed-play-button" text="▶" />
+                                             </children>
+                                          </HBox>
+                                          <Slider fx:id="sliderDrawSpeed" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" maxWidth="194.0" min="1.0" prefWidth="194.0" showTickLabels="true" styleClass="cycle-speed-slider" value="5.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" spacing="4.0" styleClass="sim-actions-mini-block">
+                                       <children>
+                                          <Button fx:id="buttonSimulation3d" mnemonicParsing="false" onAction="#onSimulation3d" maxWidth="124.0" minWidth="124.0" prefWidth="124.0" text="%status.sim3d" wrapText="true" />
+                                          <Button fx:id="buttonAppSettings" mnemonicParsing="false" onAction="#onSettings" maxWidth="124.0" minWidth="124.0" prefWidth="124.0" text="%status.settings" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </SplitPane>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>
